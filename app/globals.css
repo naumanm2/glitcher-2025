@@ -4,12 +4,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #272323;
+  --glitcher-pink: #FEC3E9;
+  --glitcher-red: #CC2323;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #272323;
     --foreground: #ededed;
   }
 }
