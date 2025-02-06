@@ -6,7 +6,7 @@ import CTA from "./cta";
 
 export default function Header() {
   return (
-    <nav className="w-full inline-flex items-center justify-between fixed z-10 top-0 ">
+    <nav className=" flex items-center justify-between fixed w-full z-10 top-0 ">
       <div className="flex flex-row gap-6 font-medium">
         <Link href="/shows">Shows</Link>
         <Link href="/shows">About us</Link>

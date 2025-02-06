@@ -25,7 +25,7 @@ export default function Hero({ heading, subtitle }: heroOptions) {
             src={Glitcher_ninni_west}
             alt="Image of the collective members"
             className="rounded-2xl"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

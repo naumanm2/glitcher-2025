@@ -22,7 +22,7 @@ export default function Card({
       {address && (
         <Link href={address} className="flex-1">
           <div className="flex flex-col gap-2 flex-1">
-            <div className="overflow-hidden rounded-xl">
+            <div className="overflow-hidden rounded-xl block">
               <Image
                 src={imageAddress}
                 alt={imageAltText}
