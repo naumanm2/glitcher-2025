@@ -1,3 +1,7 @@
-export default function Footer() {
-	return <div className="l"></div>;
-}
+export const Footer = () => {
+	return (
+		<footer>
+			<div className="bg-background"></div>
+		</footer>
+	);
+};

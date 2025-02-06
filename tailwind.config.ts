@@ -11,8 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        brand: "var(--brand)",
+        glitcherpink: "var(--glitcher-pink)",
+        glitcherred: "var(--glitcher-red)",
       },
+      fontFamily: {
+        sans: ['var(--font-cy-grotesk)'],
+        display: ['var(--font-cy-grotesk-display)']
+      }
     },
   },
   plugins: [],

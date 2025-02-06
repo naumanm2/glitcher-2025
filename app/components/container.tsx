@@ -1,7 +1,5 @@
-export default function Container({ children }: { children: React.ReactNode }) {
+export const Container = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<body>
-			<div className="max-w-screen-2xl p-8">{children}</div>
-		</body>
+			<div className="max-w-screen-2xl p-4 md:p-8 w-full">{children}</div>
 	);
 }
