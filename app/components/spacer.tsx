@@ -1,3 +1,3 @@
-export default function Spacer({ h }: { h: number }) {
-	return <div className={`w-full`} style={{ height: h + "px"}}></div>;
+export default function Spacer() {
+	return <div className={`w-full h-[45px] md:h-[90px]`}></div>;
 }

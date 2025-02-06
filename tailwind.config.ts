@@ -15,9 +15,16 @@ export default {
         glitcherred: "var(--glitcher-red)",
       },
       fontFamily: {
-        sans: ['var(--font-cy-grotesk)'],
-        display: ['var(--font-cy-grotesk-display)']
-      }
+        sans: ["var(--font-cy-grotesk)"],
+        display: ["var(--font-cy-grotesk-display)"],
+      },
+      keyframes: {
+        "infinite-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: { "infinite-scroll": "infinite-scroll linear infinite" },
     },
   },
   plugins: [],
