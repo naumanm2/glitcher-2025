@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Glitcher_ninni_west from "./assets/images/Glitcher_ninni_west-.jpg";
 import Glitcher from "../public/glitcher.svg";
 
@@ -10,8 +8,6 @@ import Card from "./components/card";
 import Hero from "./components/hero";
 import TextParagraph from "./components/text-paragraph";
 import CTAdisplay from "./components/cta-display";
-import Footer from "./components/footer";
-import Logos from "./components/logos";
 import LogoRow from "./components/logo-row";
 import Subhero from "./components/subhero";
 
@@ -23,6 +19,8 @@ export default function Home() {
 			<Subhero
 				headline="The Porn Horror Musical 2"
 				subtitle="The night is getting dark, will they make it out of the fuck-cabin alive?"
+        image={Glitcher_ninni_west}
+        imageAltText="Lorem ipsum"
 			/>
 			<Spacer />
 			<TextWithLead

@@ -10,7 +10,7 @@ interface heroOptions {
 
 export default function Hero({ heading, subtitle }: heroOptions) {
   return (
-    <div className="rounded-2xl bg-glitcherpink w-full p-6 pt-[160px] md:pt-[240px]">
+    <div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[160px] md:pt-[240px]">
       <div className="text-glitcherred w-full scale-[120%] md:scale-110 flex justify-center font-display">
         <Image src={Glitcher} alt="" className="w-[100vw]"></Image>
       </div>

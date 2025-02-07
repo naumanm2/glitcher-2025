@@ -6,7 +6,7 @@ import Glitcher from "../../public/glitcher-pink.svg";
 export default function Footer() {
   return (
     <footer>
-      <div className="bg-foreground rounded-3xl flex flex-col gap-16 md:gap-16 text-white p-4 md:p-12">
+      <div className="bg-foreground rounded-3xl flex flex-col gap-16 md:gap-16 text-white p-4 md:p-8">
         <div className="flex md:flex-row flex-col w-full justify-between">
           <div className="flex flex-row md:gap-6 pb-4">
             <Link

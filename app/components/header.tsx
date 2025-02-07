@@ -57,13 +57,15 @@ export default function Header() {
 				</Link>
 			</div>
 			<div className="h-[84px] md:h-[92px]">
-				<Image src={Glitcher} alt="Glitcher logo of an eye" width={96} />
+				<Link href="/">
+					<Image src={Glitcher} alt="Glitcher logo of an eye" width={96} />
+				</Link>
 			</div>
 			<div className="max-md:hidden p-2">
 				<CTA text="Book us" arrow={false} address="/" />
 			</div>
 			<div className="md:hidden">
-				{open ? (
+				{!open ? (
 					<button onClick={() => setOpen(!open)}>MENU</button>
 				) : (
 					<div className="">
