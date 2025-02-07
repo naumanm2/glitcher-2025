@@ -15,8 +15,8 @@ export default function Hero({ heading, subtitle }: heroOptions) {
         <Image src={Glitcher} alt="" className="w-[100vw]"></Image>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between w-full gap-12 mt-12">
-        <div className="md:self-end flex-1 flex flex-col gap-4">
+      <div className="flex flex-col md:flex-row justify-between w-full gap-8 md:gap-12 mt-12">
+        <div className="md:self-end flex-1 flex flex-col gap-2 md:gap-4">
           <p>{subtitle}</p>
           <h2>{heading}</h2>
         </div>

@@ -19,7 +19,7 @@ export default function CTAdisplay({
         {headline}
       </div>
       <Link href={address}>
-        <div className="group w-full bg-glitcherpink h-[32vw] md:h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
+        <div className="group w-full bg-glitcherpink h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
           <div className="text-[9vw] font-medium">{text}</div>
           <div className="basis-1/12">
             <Image
