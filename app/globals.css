@@ -23,12 +23,12 @@ body {
 }
 
 h1 {
-	font-size: clamp(3rem, 3.67vi + 2.33rem, 6rem);
+	font-size: clamp(3rem, 3.67vi + 2.33rem, 4rem);
 	line-height: 1;
 }
 
 h2 {
-	font-size: clamp(3rem, 3.67vi + 2.33rem, 5rem);
+	font-size: clamp(3rem, 3.67vi + 2.33rem, 3rem);
 	line-height: 1;
 	font-weight: 600;
 }
@@ -45,7 +45,12 @@ button {
 }
 
 p,
-a {
+a, strong {
 	font-size: clamp(1.06rem, 0.34vi + 0.98rem, 1.25rem);
 	font-weight: 400;
 }
+
+strong {
+  font-weight:600;
+}
+

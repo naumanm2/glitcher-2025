@@ -2,7 +2,13 @@ import Card from "../components/card";
 import CardCollection from "../components/card-collection";
 import Subhero from "../components/subhero";
 
-import Copy_of_bloodbath from "../assets/images/Copy of Bloodbath.jpg";
+import Bloodbath from "../../public/general/bloodbath.jpg";
+import BloodbathBlur from "../../public/general/bloodbath-blur.jpg";
+import HowToLiveTogether from "../../public/general/how-to-live-together.jpg";
+import HowToLiveTogetherBlur from "../../public/general/how-to-live-together-blur.jpg";
+import ThePornHorrorMusicalTwo from "../../public/general/tphm.jpg";
+import ThePornHorrorMusicalTwoBlur from "../../public/general/tphm-blur.jpg";
+
 import Spacer from "../components/spacer";
 
 export default function Shows() {
@@ -12,18 +18,20 @@ export default function Shows() {
 			<Spacer />
 			<CardCollection subtitle={"2 shows"}>
 				<Card
-					image={Copy_of_bloodbath.src}
+					image={HowToLiveTogether}
+					imageBlurData={HowToLiveTogetherBlur}
 					imageAltText={""}
 					headline={"How To Live Together"}
 					paragraph="10.10.2024 – 10.01.2027"
-					address="/"
+					address="/shows/how-to-live-together"
 				/>
 				<Card
-					image={Copy_of_bloodbath.src}
+					image={ThePornHorrorMusicalTwo}
+					imageBlurData={ThePornHorrorMusicalTwoBlur}
 					imageAltText={""}
-					headline={"Bloodbath"}
+					headline={"The Porn Horror Musical 2"}
 					paragraph="10.10.2024 – 10.01.2027"
-					address="/"
+					address="/shows/the-porn-horror-musical-2"
 				/>
 			</CardCollection>
 			<Spacer />

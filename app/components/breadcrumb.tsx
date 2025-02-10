@@ -13,18 +13,22 @@ export default function Breadcrumb() {
 				<Link href="/" className="underline">
 					Home
 				</Link>
-				{pathNames.map((i: string, index: number) => (
-					<div key={index} className="flex flex-row gap-2">
-						<p className="">/ </p>
-						{index < length+1 ? (
-							<Link href={i} className={`${length < index && "underline"}`}>
-								{i}
-							</Link>
-						) : (
-							<p>{i}</p>
-						)}
-					</div>
-				))}
+				{pathNames.map((i: string, index: number) => {
+					var icap = i.charAt(0).toUpperCase() + String(i).slice(1);
+					icap = icap.replaceAll("-", " ");
+					return (
+						<div key={index} className="flex flex-row gap-2">
+							<p className="">/</p>
+							{index + 1 < length ? (
+								<Link href={"/" + i} className="underline">
+									{icap}
+								</Link>
+							) : (
+								<p>{icap}</p>
+							)}
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

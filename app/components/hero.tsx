@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-import Glitcher from "../../public/glitcher-red.svg";
-import Glitcher_ninni_west from "../assets/images/Glitcher_ninni_west-.jpg";
+import Glitcher from "../../public/logos/glitcher-red.svg";
+import GlitcherMain from "../../public/general/glitcher.jpg";
+import GlitcherMainBlur from "../../public/general/glitcher-blur.jpg";
+
 
 interface heroOptions {
   heading: string;
@@ -22,7 +24,9 @@ export default function Hero({ heading, subtitle }: heroOptions) {
         </div>
         <div className="flex-1">
           <Image
-            src={Glitcher_ninni_west}
+            src={GlitcherMain}
+            blurDataURL={GlitcherMainBlur.src}
+            placeholder="blur"
             alt="Image of the collective members"
             className="rounded-2xl"
             style={{ objectFit: "cover" }}

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface cardOptions {
-	image: string;
+	image: StaticImageData;
+	imageBlurData: StaticImageData;
 	imageAltText: string;
 	headline: string;
 	paragraph?: string;
@@ -11,31 +12,43 @@ interface cardOptions {
 
 export default function Card({
 	image,
+	imageBlurData,
 	imageAltText,
 	headline,
 	paragraph,
 	address,
 }: cardOptions) {
-	const imageAddress = image;
 	return (
 		<div>
-			{address && (
-				<Link href={address} className="flex-1">
-					<div className="flex flex-col gap-2 flex-1">
+			{address ? (
+				<div className="flex flex-col gap-2 flex-1">
+					<Link href={address} className="flex-1">
 						<div className="overflow-hidden rounded-xl block">
 							<Image
-								src={imageAddress}
+								src={image}
+								blurDataURL={imageBlurData.src}
 								alt={imageAltText}
 								className="animate-fade-in transition duration-300 hover:scale-110"
-								width={640}
-								height={960}
-								layout="responsive"
+								placeholder="blur"
 							/>
 						</div>
-						<h3 className="pt-2">{headline}</h3>
-						<p>{paragraph}</p>
+					</Link>
+					<h3 className="pt-2">{headline}</h3>
+					<p>{paragraph}</p>
+				</div>
+			) : (
+				<div className="flex flex-col gap-2 pb-4">
+					<div className="overflow-hidden rounded-xl">
+						<Image
+							src={image}
+							blurDataURL={imageBlurData.src}
+							alt={imageAltText}
+							placeholder="blur"
+						/>
 					</div>
-				</Link>
+					<h3 className="pt-2">{headline}</h3>
+					<p>{paragraph}</p>
+				</div>
 			)}
 		</div>
 	);

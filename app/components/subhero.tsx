@@ -2,27 +2,35 @@
 
 import Image, { StaticImageData } from "next/image";
 
-import CTA from "./cta";
+import PopupCTA from "./cta-popup";
 
 import { CyGroteskHero } from "../assets/fonts/index";
 import Breadcrumb from "./breadcrumb";
+
+interface CTAoptions {
+	text: string;
+	arrow: boolean;
+	address: string;
+}
 
 interface subheroOptions {
 	headline: string;
 	subtitle?: string;
 	image?: StaticImageData;
+  imageBlurData?: StaticImageData;
 	imageAltText?: string;
-	ctaText?: string;
-	address?: string;
+  ctaText?: string;
+	links?: Array<CTAoptions>;
 }
 
 export default function Subhero({
 	headline,
 	subtitle,
 	image,
+  imageBlurData,
 	imageAltText,
   ctaText,
-  address
+	links,
 }: subheroOptions) {
 	return (
 		<div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[160px] md:pt-[240px]">
@@ -35,13 +43,14 @@ export default function Subhero({
 					<p>{subtitle}</p>
 				</div>
 
-				{ctaText && address && <CTA text={ctaText} address={address} arrow={true} />}
+				{links && ctaText && <PopupCTA text={ctaText} links={links} arrow={true} />}
 				<div className="flex flex-row justify-between">
 					<div className="max-md:hidden flex-1"></div>
 					<div className="flex-1">
-						{image && imageAltText && (
+						{image && imageAltText && imageBlurData && (
 							<Image
 								src={image}
+                blurDataURL={imageBlurData.src}
 								alt={imageAltText}
 								className="rounded-2xl"
 								style={{ objectFit: "cover" }}
