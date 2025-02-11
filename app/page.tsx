@@ -1,4 +1,3 @@
-import Glitcher_ninni_west from "./assets/images/Glitcher_ninni_west-.jpg";
 
 import TextWithLead from "./components/text-with-lead";
 import Spacer from "./components/spacer";

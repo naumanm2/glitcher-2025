@@ -14,8 +14,7 @@ export default function Breadcrumb() {
 					Home
 				</Link>
 				{pathNames.map((i: string, index: number) => {
-					var icap = i.charAt(0).toUpperCase() + String(i).slice(1);
-					icap = icap.replaceAll("-", " ");
+					const icap = i.charAt(0).toUpperCase() + String(i).slice(1).replaceAll("-"," ");
 					return (
 						<div key={index} className="flex flex-row gap-2">
 							<p className="">/</p>

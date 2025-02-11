@@ -2,8 +2,6 @@ import Card from "../components/card";
 import CardCollection from "../components/card-collection";
 import Subhero from "../components/subhero";
 
-import Bloodbath from "../../public/general/bloodbath.jpg";
-import BloodbathBlur from "../../public/general/bloodbath-blur.jpg";
 import HowToLiveTogether from "../../public/general/how-to-live-together.jpg";
 import HowToLiveTogetherBlur from "../../public/general/how-to-live-together-blur.jpg";
 import ThePornHorrorMusicalTwo from "../../public/general/tphm.jpg";

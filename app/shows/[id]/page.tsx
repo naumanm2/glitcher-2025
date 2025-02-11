@@ -1,3 +1,3 @@
-export default function Show({ params }: { params: string }) {
+export default function Show() {
 
 }

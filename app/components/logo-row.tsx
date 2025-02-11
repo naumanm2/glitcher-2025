@@ -34,7 +34,7 @@ export default function LogoRow() {
 			<div
 				className="flex animate-infinite-scroll flex-row gap-10 w-[calc(2*var(--count)*(theme(gap.10)+226px))] shrink-0"
 				style={{
-					//@ts-ignore
+					//@ts-expect-error
 					"--count": totalLogos,
 					animationDuration: "30s",
 				}}>
