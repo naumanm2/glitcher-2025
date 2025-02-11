@@ -23,7 +23,7 @@ export default function Home() {
 				paragraph="På teaterscenen gottar sig Glitcher i allt det mörka och snaskiga vi älskar: ”Popkultur är lite syndigt”"
 			/>
 			<Spacer />
-			<CardCollection headline="Current shows" address="/shows">
+			<CardCollection headline="Current shows">
 				<Card
 					image={HowToLiveTogether}
 					imageBlurData={HowToLiveTogetherBlur}
