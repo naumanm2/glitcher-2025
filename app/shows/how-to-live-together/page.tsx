@@ -18,9 +18,14 @@ interface linkOptions {
 
 export default function ShowHowToLiveToGether() {
 	const tiketti: linkOptions = {
-		text: "Tiketti.fi",
+		text: "Viirus, Helsinki",
 		arrow: true,
-		address: "https://tiketti.fi",
+		address: "https://fienta.com/fi/s/viirus-guest-how-to-live-together",
+	};
+	const kontrar: linkOptions = {
+		text: "Konträr, Stockholm",
+		arrow: true,
+		address: "https://kontrar.se",
 	};
 	const links: Array<linkOptions> = [tiketti];
 
@@ -28,7 +33,8 @@ export default function ShowHowToLiveToGether() {
 		<div>
 			<Subhero
 				headline="How to Live Together"
-				subtitle="Lorem ipsum"
+				subtitle="15.3.2025 - 29.3.2025 Viirus, Helsinki"
+				subtitle2="xx-xx Konträr, Stockholm"
 				ctaText="Buy tickets"
 				links={links}
 				image={HowToLiveTogether}

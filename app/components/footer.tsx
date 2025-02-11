@@ -15,7 +15,7 @@ export default function Footer() {
 							Shows
 						</Link>
 						<Link
-							href="/about"
+							href="/about-us"
 							className="p-2 font-medium hover:underline cursor-pointer">
 							About us
 						</Link>
@@ -23,12 +23,16 @@ export default function Footer() {
 					<div className="flex flex-col gap-0 items-start md:items-end">
 						<div className="flex flex-row gap-0">
 							<Link
-								href="/shows"
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://www.instagram.com/g_litcher/"
 								className="p-2 font-regular underline hover:opacity-85 transition-opacity duration-100 ease-in-out">
 								Instagram
 							</Link>
 							<Link
-								href="/about-us"
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://www.facebook.com/glitcherinthehouse"
 								className="p-2 font-regular underline hover:opacity-85 transition-opacity duration-100 ease-in-out">
 								Facebook
 							</Link>

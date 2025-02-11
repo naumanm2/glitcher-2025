@@ -16,19 +16,20 @@ import HowToLiveTogetherBlur from "../public/general/how-to-live-together-blur.j
 export default function Home() {
 	return (
 		<div>
-			<Hero heading="Creative Collective" subtitle="lorem ipsum dolor sit amet" />
+			<Hero heading="Performance Collective"/>
 			<Spacer />
 			<TextWithLead
-				lead="Lorem ipsum dolor sit amet adipiscing consictitur elit.,"
-				paragraph="Lorem ipsum dolor sit amet adipiscing consictitur elit."
+				lead="Lasse Garoff, Yle 18.11.2023"
+				paragraph="På teaterscenen gottar sig Glitcher i allt det mörka och snaskiga vi älskar: ”Popkultur är lite syndigt”"
 			/>
 			<Spacer />
-			<CardCollection headline="Shows" address="/shows">
+			<CardCollection headline="Current shows" address="/shows">
 				<Card
 					image={HowToLiveTogether}
 					imageBlurData={HowToLiveTogetherBlur}
 					imageAltText=""
-					paragraph="10.10.2024 – 10.01.2027"
+					paragraph="15.3.2025 - 29.3.2025 Viirus, Helsinki"
+					paragraph2="xx - xx Konträr, Stockholm"
 					headline="How to Live Together"
 					address="/shows/how-to-live-together"
 				/>
@@ -37,7 +38,7 @@ export default function Home() {
 					imageBlurData={ThePornHorrorMusicalTwoBlur}
 					imageAltText={""}
 					headline={"The Porn Horror Musical 2"}
-					paragraph="10.10.2024 – 10.01.2027"
+					paragraph="22.5.2025 - 24.5.2025"
 					address="/shows/the-porn-horror-musical-2"
 				/>
 				{/* <Card
@@ -52,7 +53,7 @@ export default function Home() {
 			<Spacer />
 			<TextParagraph
 				headline="About Glitcher"
-				paragraph="Glitcher is a Finnish performance collective which has been active since 2019. Today it consists of artists Emelie Zilliacus, Joel Forsbacka, Josefine Fri, Oscar Fagerudd and Martin Paul. "
+				paragraph="Glitcher is a Finnish performance collective which has been active since 2019. Today it consists of artists Emelie Zilliacus, Joel Forsbacka, Josefine Fri, Oscar Fagerudd, Martin Paul and Misan Nykvist."
 				ctaAddress="/about-us"
 			/>
 			<Spacer />

@@ -33,16 +33,26 @@ const Menu = ({ open, setOpen }: menuOptions) => {
 					</div>
 					<div className="flex flex-row gap-6 [writing-mode:tb] underline-offset-2 -scale-100">
 						<div className="p-2 font-regular underline hover:opacity-85 transition-opacity duration-100 ease-in-out">
-							<Link href="/">Instagram</Link>
+							<Link
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://www.instagram.com/g_litcher/">
+								Instagram
+							</Link>
 						</div>
 						<div className="p-2 font-regular underline hover:opacity-85 transition-opacity duration-100 ease-in-out">
-							<Link href="/">Facebook</Link>
+							<Link
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://www.facebook.com/glitcherinthehouse">
+								Facebook
+							</Link>
 						</div>
 					</div>
 				</div>
 				<div className="">
 					<p className="p-2 hover:underline">
-						<a href="mailto:info@glitcher.com">info@glitcher.com</a>
+						<a href="mailto:info@glitcher.info">info@glitcher.info</a>
 					</p>
 					<p className="p-2">Hietalahdenkatu 5, 00180</p>
 					<p className="p-2 hover:underline">
@@ -73,7 +83,7 @@ export default function Header() {
 				</Link>
 			</div>
 			<div className="max-md:hidden p-2">
-				<CTA text="Book us" arrow={false} address="/" />
+				<CTA text="Book us" arrow={false} address="mailto:info@glitcher.info" />
 			</div>
 			<div className="md:hidden">
 				{!open ? (

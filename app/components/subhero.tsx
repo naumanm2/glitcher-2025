@@ -16,6 +16,7 @@ interface CTAoptions {
 interface subheroOptions {
 	headline: string;
 	subtitle?: string;
+	subtitle2?: string;
 	image?: StaticImageData;
   imageBlurData?: StaticImageData;
 	imageAltText?: string;
@@ -26,6 +27,7 @@ interface subheroOptions {
 export default function Subhero({
 	headline,
 	subtitle,
+	subtitle2,
 	image,
   imageBlurData,
 	imageAltText,
@@ -41,6 +43,7 @@ export default function Subhero({
 				</div>
 				<div className="flex-1 flex flex-col gap-2 md:gap-4">
 					<p>{subtitle}</p>
+					<p>{subtitle2}</p>
 				</div>
 
 				{links && ctaText && <PopupCTA text={ctaText} links={links} arrow={true} />}

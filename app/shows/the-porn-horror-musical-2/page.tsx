@@ -16,18 +16,18 @@ interface linkOptions {
 }
 
 export default function ShowThePornHorrorMusicalTwo() {
-	const tiketti: linkOptions = {
-		text: "Tiketti.fi",
+	const tickets: linkOptions = {
+		text: "Tehdas Teatteri, Åbo",
 		arrow: true,
-		address: "https://tiketti.fi",
+		address: "https://ssl.eventilla.com/pornhorrormusical",
 	};
-	const links: Array<linkOptions> = [tiketti];
+	const links: Array<linkOptions> = [tickets];
 
 	return (
 		<div>
 			<Subhero
-				headline="The Porn Horror Show 2"
-				subtitle="Lorem ipsum"
+				headline="The Porn Horror Musical 2"
+				subtitle="22.5-24.5.2025 Tehdas Teatteri, Åbo"
 				ctaText="Buy tickets"
 				links={links}
 				image={ThePornHorrorMusicalTwo}

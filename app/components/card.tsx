@@ -7,6 +7,7 @@ interface cardOptions {
 	imageAltText: string;
 	headline: string;
 	paragraph?: string;
+	paragraph2?: string;
 	address?: string;
 	phone?: string;
 }
@@ -17,6 +18,7 @@ export default function Card({
 	imageAltText,
 	headline,
 	paragraph,
+	paragraph2,
 	address,
 	phone,
 }: cardOptions) {
@@ -37,6 +39,7 @@ export default function Card({
 					</Link>
 					<h3 className="pt-2">{headline}</h3>
 					<p>{paragraph}</p>
+					<p>{paragraph2}</p>
 				</div>
 			) : (
 				<div className="flex flex-col pb-4">

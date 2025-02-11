@@ -7,7 +7,7 @@ import GlitcherMainBlur from "../../public/general/glitcher-blur.jpg";
 
 interface heroOptions {
   heading: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export default function Hero({ heading, subtitle }: heroOptions) {
