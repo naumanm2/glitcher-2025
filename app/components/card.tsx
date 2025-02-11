@@ -8,6 +8,7 @@ interface cardOptions {
 	headline: string;
 	paragraph?: string;
 	address?: string;
+	phone?: string;
 }
 
 export default function Card({
@@ -17,6 +18,7 @@ export default function Card({
 	headline,
 	paragraph,
 	address,
+	phone,
 }: cardOptions) {
 	return (
 		<div>
@@ -37,7 +39,7 @@ export default function Card({
 					<p>{paragraph}</p>
 				</div>
 			) : (
-				<div className="flex flex-col gap-2 pb-4">
+				<div className="flex flex-col pb-4">
 					<div className="overflow-hidden rounded-xl">
 						<Image
 							src={image}
@@ -46,8 +48,11 @@ export default function Card({
 							placeholder="blur"
 						/>
 					</div>
-					<h3 className="pt-2">{headline}</h3>
-					<p>{paragraph}</p>
+					<h3 className="pt-3 pb-2">{headline}</h3>
+					<p className="pb-1">{paragraph}</p>
+					<Link href={`tel:${phone}`}>
+						<p className="hover:underline">{phone}</p>
+					</Link>
 				</div>
 			)}
 		</div>

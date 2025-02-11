@@ -72,6 +72,7 @@ export default function About() {
 					imageAltText="Portrait image of Misan Nykvist, Director at Glitcher"
 					headline="Misan Nykvist"
 					paragraph="Director"
+					phone="+358 45 136 4006"
 				/>
 			</ImageCollection>
 			<Spacer />
