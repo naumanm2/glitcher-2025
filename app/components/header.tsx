@@ -56,7 +56,7 @@ const Menu = ({ open, setOpen }: menuOptions) => {
 					</p>
 					<p className="p-2">Hietalahdenkatu 5, 00180</p>
 					<p className="p-2 hover:underline">
-						<a href="tel:+358 50 1234 567">+358 50 1234 567</a>
+						<a href="tel:+358 45 136 4006">+358 45 136 4006</a>
 					</p>
 				</div>
 			</div>
