@@ -19,7 +19,7 @@ export default function Home() {
 			<Hero heading="Performance Collective"/>
 			<Spacer />
 			<TextWithLead
-				lead="Lasse Garoff, Yle 18.11.2023"
+				lead="–Lasse Garoff, Yle 18.11.2023"
 				paragraph="På teaterscenen gottar sig Glitcher i allt det mörka och snaskiga vi älskar: ”Popkultur är lite syndigt”"
 			/>
 			<Spacer />

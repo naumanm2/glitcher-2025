@@ -38,8 +38,10 @@ export default function Card({
 						</div>
 					</Link>
 					<h3 className="pt-2">{headline}</h3>
-					<p>{paragraph}</p>
-					<p>{paragraph2}</p>
+					<div className="">
+						<p>{paragraph}</p>
+						<p>{paragraph2}</p>
+					</div>
 				</div>
 			) : (
 				<div className="flex flex-col pb-4">
