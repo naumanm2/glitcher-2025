@@ -8,8 +8,8 @@ import CTAdisplay from "./components/cta-display";
 import LogoRow from "./components/logo-row";
 // import Bloodbath from "../public/general/bloodbath.jpg";
 // import BloodbathBlur from "../public/general/bloodbath-blur.jpg";
-import ThePornHorrorMusicalTwo from "../../public/general/tphm.jpg";
-import ThePornHorrorMusicalTwoBlur from "../../public/general/tphm-blur.jpg";
+import ThePornHorrorMusicalTwo from "../public/general/tphm.jpg";
+import ThePornHorrorMusicalTwoBlur from "../public/general/tphm-blur.jpg";
 import HowToLiveTogether from "../public/general/how-to-live-together.jpg";
 import HowToLiveTogetherBlur from "../public/general/how-to-live-together-blur.jpg";
 
