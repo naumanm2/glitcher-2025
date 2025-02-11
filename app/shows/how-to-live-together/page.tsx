@@ -27,7 +27,7 @@ export default function ShowHowToLiveToGether() {
 		arrow: true,
 		address: "https://kontrar.se",
 	};
-	const links: Array<linkOptions> = [tiketti];
+	const links: Array<linkOptions> = [tiketti, kontrar];
 
 	return (
 		<div>
