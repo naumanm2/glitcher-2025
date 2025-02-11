@@ -18,6 +18,12 @@ import martin from "../../public/performers/martin.jpg";
 import martinBlur from "../../public/performers/martin-blur.jpg";
 import misan from "../../public/performers/misan.jpg";
 import misanBlur from "../../public/performers/misan-blur.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "About us"
+}
+
 
 export default function About() {
 	return (
@@ -71,7 +77,7 @@ export default function About() {
 					imageBlurData={misanBlur}
 					imageAltText="Portrait image of Misan Nykvist, Director at Glitcher"
 					headline="Misan Nykvist"
-					paragraph="Director"
+					paragraph="Producer"
 					phone="+358 45 136 4006"
 				/>
 			</ImageCollection>

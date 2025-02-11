@@ -56,7 +56,9 @@ export default function Card({
 					<h3 className="pt-3 pb-2">{headline}</h3>
 					<p className="pb-1">{paragraph}</p>
 					<Link href={`tel:${phone}`}>
-						<p className="hover:underline">{phone}</p>
+						<p className="underline hover:opacity-80 animate-fade-in transition duration-300 ">
+							{phone}
+						</p>
 					</Link>
 				</div>
 			)}

@@ -8,6 +8,12 @@ import content from "./content.mdx";
 
 import HowToLiveTogether from "../../../public/general/how-to-live-together.jpg";
 import HowToLiveTogetherBlur from "../../../public/general/how-to-live-together-blur.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "How to Live Together"
+}
+
 
 
 interface linkOptions {

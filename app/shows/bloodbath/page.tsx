@@ -6,6 +6,12 @@ import TextParagraph from "@/app/components/text-paragraph";
 
 import Bloodbath from "../../../public/general/bloodbath.jpg";
 import BloodbathBlur from "../../../public/general/bloodbath-blur.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Bloodbath"
+}
+
 
 interface linkOptions {
 	text: string;

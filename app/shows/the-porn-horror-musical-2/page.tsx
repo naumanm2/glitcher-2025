@@ -8,6 +8,11 @@ import content from "./content.mdx";
 
 import ThePornHorrorMusicalTwo from "../../../public/general/tphm.jpg";
 import ThePornHorrorMusicalTwoBlur from "../../../public/general/tphm-blur.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "The Porn Horror Musical 2"
+}
 
 interface linkOptions {
 	text: string;

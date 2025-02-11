@@ -8,6 +8,11 @@ import ThePornHorrorMusicalTwo from "../../public/general/tphm.jpg";
 import ThePornHorrorMusicalTwoBlur from "../../public/general/tphm-blur.jpg";
 
 import Spacer from "../components/spacer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Shows"
+}
 
 export default function Shows() {
 	return (
