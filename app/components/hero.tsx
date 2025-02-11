@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Glitcher from "../../public/logos/glitcher-text-logo-red.svg";
+import Glitcher from "../../public/logos/glitcher-red.svg";
 import GlitcherMain from "../../public/general/glitcher.jpg";
 import GlitcherMainBlur from "../../public/general/glitcher-blur.jpg";
 
@@ -12,8 +12,8 @@ interface heroOptions {
 
 export default function Hero({ heading, subtitle }: heroOptions) {
   return (
-    <div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[100px] md:pt-[100px] relative">
-      <div className="text-glitcherred w-full scale-[125%] md:scale-110 flex justify-center font-display -mb-[4vw] md:-mb-[30vw] -z-10">
+    <div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[160px] md:pt-[240px] relative">
+      <div className="text-glitcherred w-full scale-[120%] md:scale-110 flex justify-center font-display -z-10">
         <Image src={Glitcher} alt="" className="w-[100vw]"></Image>
       </div>
 

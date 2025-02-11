@@ -20,8 +20,17 @@ export default function Footer() {
 							About us
 						</Link>
 					</div>
-					<div className="flex flex-col gap-0 items-start md:items-end">
-						<div className="flex flex-row gap-0">
+					<div className="flex flex-col-reverse gap-0 items-start">
+						<div className="">
+							<p className="p-2">Hietalahdenkatu 5, 00180</p>
+							<p className="p-2 hover:underline">
+								<a href="tel:+358 45 136 4006">+358 45 136 4006</a>
+							</p>
+							<p className="p-2 hover:underline">
+								<a href="mailto:info@glitcher.info">info@glitcher.info</a>
+							</p>
+						</div>
+						<div className="flex flex-row gap-6">
 							<Link
 								rel="noopener noreferrer"
 								target="_blank"
@@ -37,13 +46,9 @@ export default function Footer() {
 								Facebook
 							</Link>
 						</div>
-						<p className="p-2">Hietalahdenkatu 5, 00180</p>
-						<p className="p-2 hover:underline">
-							<a href="tel:+358 45 136 4006">+358 45 136 4006</a>
-						</p>
 					</div>
 				</div>
-				<div className="text-glitcherred w-full scale-110 flex justify-center font-display">
+				<div className="text-glitcherred w-full scale-[125%] md:scale-110 flex justify-center font-display">
 					<Image src={Glitcher} alt="" className="w-[100vw]"></Image>
 				</div>
 				<div className="w-full text-center p-2">

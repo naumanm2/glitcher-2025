@@ -1,4 +1,4 @@
-import TextWithLead from "./components/text-with-lead";
+// import TextWithLead from "./components/text-with-lead";
 import Spacer from "./components/spacer";
 import CardCollection from "./components/card-collection";
 import Card from "./components/card";
@@ -16,13 +16,13 @@ import HowToLiveTogetherBlur from "../public/general/how-to-live-together-blur.j
 export default function Home() {
 	return (
 		<div>
-			<Hero heading="Performance Collective"/>
+			<Hero heading="Performance Collective" />
 			<Spacer />
-			<TextWithLead
+			{/* <TextWithLead
 				lead="–Lasse Garoff, Yle 18.11.2023"
 				paragraph="På teaterscenen gottar sig Glitcher i allt det mörka och snaskiga vi älskar: ”Popkultur är lite syndigt”"
-			/>
-			<Spacer />
+			/> 
+			<Spacer /> */}
 			<CardCollection headline="Current shows">
 				<Card
 					image={HowToLiveTogether}
