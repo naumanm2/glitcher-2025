@@ -31,7 +31,7 @@ const Menu = ({ open, setOpen }: menuOptions) => {
 							About us
 						</Link>
 					</div>
-					<div className="flex flex-row gap-6 [writing-mode:sideways-lr]">
+					<div className="flex flex-row gap-6 [writing-mode:tb] underline-offset-2 -scale-100">
 						<div className="p-2 font-regular underline hover:opacity-85 transition-opacity duration-100 ease-in-out">
 							<Link href="/">Instagram</Link>
 						</div>
