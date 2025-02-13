@@ -44,6 +44,7 @@ export default function ShowHowToLiveToGether() {
 				ctaText="Buy tickets"
 				links={links}
 				image={HowToLiveTogether}
+				imageAltText="Promo image for Glitcher show How to Live Together"
 				imageBlurData={HowToLiveTogetherBlur}
 			/>
 			<Spacer />
