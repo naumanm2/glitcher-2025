@@ -16,7 +16,7 @@ import HowToLiveTogetherBlur from "../public/general/how-to-live-together-blur.j
 export default function Home() {
   return (
     <div>
-      <Hero heading="Performance Collective" />
+      <Hero heading="Theatre Collective" />
       <Spacer />
       {/* <TextWithLead
 				lead="–Lasse Garoff, Yle 18.11.2023"

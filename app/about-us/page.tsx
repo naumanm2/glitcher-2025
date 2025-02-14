@@ -72,8 +72,9 @@ export default function About() {
 					image={fagge}
 					imageBlurData={faggeBlur}
 					imageAltText="Portrait image of Oscar Faggerudd, technician at Glitcher"
-					headline="Oscar Faggerudd"
-					paragraph="Technician"
+					headline="Oscar Fagerudd"
+					paragraph="Sound designer, Technical producer"
+					phone="+358 45 357 6966"
 				/>
 				<Card
 					image={misan}

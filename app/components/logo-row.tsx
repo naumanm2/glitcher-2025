@@ -9,6 +9,7 @@ import ottomalm from "../../public/sponsors/s_ottomalm.png";
 import thuring from "../../public/sponsors/s_thuring.png";
 import tinfo from "../../public/sponsors/s_tinfo.png";
 import nygren from "../../public/sponsors/s_nygren.png";
+import krooks from "../../public/sponsors/s_krooks.png";
 
 const logos = [
 	konstsamfundet,
@@ -20,6 +21,7 @@ const logos = [
 	thuring,
 	tinfo,
 	nygren,
+	krooks,
 ];
 
 const Logo = ({ image }: { image: StaticImageData }) => (
