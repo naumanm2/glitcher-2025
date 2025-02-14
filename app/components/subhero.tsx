@@ -43,7 +43,7 @@ export default function Subhero({
             {headline}
           </h1>
         </div>
-        <div className="flex-1 flex flex-col gap-2 md:gap-4">
+        <div className="flex-1 flex flex-col gap-2 md:gap-2">
           <p>{subtitle}</p>
           <p>{subtitle2}</p>
         </div>
