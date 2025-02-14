@@ -22,7 +22,7 @@ interface linkOptions {
 
 export default function ShowThePornHorrorMusicalTwo() {
   const tickets: linkOptions = {
-    text: "Tehdas Teatteri, Åbo",
+    text: "Tehdas Teatteri, Turku",
     arrow: true,
     address: "https://ssl.eventilla.com/pornhorrormusical",
   };
@@ -32,7 +32,7 @@ export default function ShowThePornHorrorMusicalTwo() {
     <div>
       <Subhero
         headline="The Porn Horror Musical 2"
-        subtitle="22.5-24.5.2025 Tehdas Teatteri, Åbo"
+        subtitle="22.5-24.5.2025 Tehdas Teatteri, Turku"
         ctaText="Buy tickets"
         links={links}
         image={ThePornHorrorMusicalTwo}
