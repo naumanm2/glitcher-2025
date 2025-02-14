@@ -15,7 +15,7 @@ export default function ImageCollection({
         <h2 className="flex-1">{headline}</h2>
         <p className="flex-1 text-right self-end">{subtitle}</p>
       </div>
-      <div className="overflow-scroll snap-x">
+      <div className="overflow-scroll no-scrollbar snap-x">
         <div className="flex flex-row flex-nowrap md:flex-wrap w-min md:w-full md:[&>*]:w-[calc(33.3333%-10.67px)] gap-4 [&>*]:w-[83vw] max-md:last:pr-2">
           {children}
         </div>
