@@ -40,7 +40,7 @@ export default function ShowHowToLiveToGether() {
 			<Subhero
 				headline="How to Live Together"
 				subtitle="15.3.2025 - 29.3.2025 Viirus, Helsinki"
-				subtitle2="xx-xx Konträr, Stockholm"
+				subtitle2="11.4.2025 – 12.4.2025 Konträr, Stockholm"
 				ctaText="Buy tickets"
 				links={links}
 				image={HowToLiveTogether}
