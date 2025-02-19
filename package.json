@@ -6,16 +6,22 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.1.6",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.76.1",
     "@types/mdx": "^2.0.13",
     "next": "15.1.6",
+    "next-sanity": "^9.8.59",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sanity": "^3.76.1",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
