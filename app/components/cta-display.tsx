@@ -5,6 +5,7 @@ import Image from "next/image";
 import CTAarrow from "../../public/assets/arrow.svg";
 import { useState } from "react";
 import { Modal } from "./modal";
+import { Show } from "@/sanity/types";
 
 interface linkOptions {
   text: string;
@@ -15,14 +16,14 @@ interface CTAoptions {
   headline: string;
   text: string;
   address?: string;
-  links?: Array<linkOptions>;
+  tickets?: Show["tickets"];
 }
 
 export default function CTAdisplay({
   headline,
   text,
   address,
-  links,
+  tickets,
 }: CTAoptions) {
   const [open, setOpen] = useState(false);
   return (
@@ -31,9 +32,9 @@ export default function CTAdisplay({
         <div className="w-full font-medium text-center text-[10vw] leading-none -mb-[2.5vw]">
           {headline}
         </div>
-        {links && links.length > 1 && !address && (
+        {tickets && tickets.length > 1 && !address && (
           <>
-            {open && <Modal links={links} setOpen={setOpen} open={open} />}
+            {open && <Modal links={tickets} setOpen={setOpen} open={open} />}
             <button onClick={() => setOpen(!open)}>
               <div className="group w-full bg-glitcherpink h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
                 <div className="text-[9vw] font-medium">{text}</div>
@@ -50,9 +51,9 @@ export default function CTAdisplay({
             </button>
           </>
         )}
-        {links && links.length == 1 && (
+        {tickets && tickets.length == 1 && (
           <>
-            <Link href={links[0].address}>
+            <Link href={tickets[0].url!}>
               <div className="group w-full bg-glitcherpink h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
                 <div className="text-[9vw] font-medium">{text}</div>
                 <div className="basis-1/12">
@@ -69,7 +70,7 @@ export default function CTAdisplay({
           </>
         )}
 
-        {address && !links && (
+        {address && !tickets && (
           <>
             <Link href={address}>
               <div className="group w-full bg-glitcherpink h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">

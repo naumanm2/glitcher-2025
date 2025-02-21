@@ -9,7 +9,16 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (rule) => rule.required().min(10).max(80),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
     }),
     defineField({
       name: "subtitle",
@@ -21,6 +30,7 @@ export default defineType({
       title: "Is the show currently running?",
       name: "live",
       type: "boolean",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "tickets",
@@ -46,6 +56,22 @@ export default defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: "mainImage",
+      title: "Main Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "content",

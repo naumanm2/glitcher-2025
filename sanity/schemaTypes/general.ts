@@ -26,6 +26,37 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "sponsors",
+      title: "Sponsors",
+      description:
+        "Logos of Glitchers sponsors. Please add transparent png images with a width of 226px.",
+      type: "array",
+      of: [
+        {
+          name: "images",
+          type: "array",
+          title: "Images",
+          of: [
+            {
+              name: "image",
+              type: "image",
+              title: "Image",
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: "alt",
+                  type: "string",
+                  title: "Alternative text",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: "introShort",
       title: "Short Intro",
       description:

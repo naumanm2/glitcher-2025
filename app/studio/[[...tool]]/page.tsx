@@ -6,13 +6,21 @@
  * You can learn more about the next-sanity package here:
  * https://github.com/sanity-io/next-sanity
  */
+"use client";
 
 import { NextStudio } from "next-sanity/studio";
 import config from "@/sanity.config";
 
 export const dynamic = "force-static";
 
-export { metadata, viewport } from "next-sanity/studio";
+import {
+  metadata as studioMetadata,
+  viewport as studioViewport,
+} from "next-sanity/studio";
+import { Metadata, Viewport } from "next";
+
+// Set the correct `viewport`, `robots` and `referrer` meta tags
+
 
 export default function StudioPage() {
   return (

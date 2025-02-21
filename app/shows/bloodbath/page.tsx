@@ -35,7 +35,7 @@ export default function ShowBloodbath() {
     <div>
       <Subhero
         headline="Bloodbath"
-        subtitle="Lorem ipsum"
+        subtitle={["Lorem ipsum"]}
         ctaText="Buy tickets"
         links={links}
         image={Bloodbath}

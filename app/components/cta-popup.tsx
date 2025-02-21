@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import CTA from "./cta";
 import { Modal } from "./modal";
+import { Show } from "@/sanity/types";
 
 interface linkOptions {
   text: string;
@@ -15,16 +16,17 @@ interface linkOptions {
 interface CTAoptions {
   text: string;
   arrow: boolean;
-  links: Array<linkOptions>;
+  links?: Array<linkOptions>;
+  tickets: Show["tickets"];
 }
 
-export default function PopupCTA({ text, arrow, links }: CTAoptions) {
+export default function PopupCTA({ text, arrow, links, tickets }: CTAoptions) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      {links.length > 1 ? (
+      {tickets && tickets.length > 1 ? (
         <>
-          {open && <Modal links={links} setOpen={setOpen} open={open} />}
+          {open && <Modal links={tickets} setOpen={setOpen} open={open} />}
           <button
             className="group flex px-6 pt-3 pb-[13px] md:pb-[14px] gap-5 border-2 border-black items-center justify-between md:-mx-1 rounded-full w-fit max-md:w-full"
             onClick={() => setOpen(!open)}
@@ -38,7 +40,11 @@ export default function PopupCTA({ text, arrow, links }: CTAoptions) {
           </button>
         </>
       ) : (
-        <CTA text={text} arrow={links[0].arrow} address={links[0].address} />
+        <CTA
+          text={tickets![0].address!}
+          arrow={true}
+          address={tickets![0].address!}
+        />
       )}
     </>
   );
