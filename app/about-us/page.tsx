@@ -21,26 +21,39 @@ import misanBlur from "../../public/performers/misan-blur.jpg";
 import { Metadata } from "next";
 
 import content from "./content.mdx";
+import { client } from "@/sanity/lib/client";
+import { MEMBERS_QUERY } from "@/sanity/lib/queries";
+import { Member } from "@/sanity/types";
+import urlFor from "../(utils)/image-builder";
 
 export const metadata: Metadata = {
-	title: "About us"
-}
+	title: "About us",
+};
 
+export default async function About() {
+	const members = await client.fetch(MEMBERS_QUERY);
+	console.log(members);
 
-export default function About() {
 	return (
 		<>
 			<Subhero headline="About us" />
 			<Spacer />
-			<TextParagraph
-				headline="Glitcher"
-				Content={content}
-				ingress=""
-				paragraph=""
-			/>
+			<TextParagraph headline="Glitcher" Content={content} ingress="" paragraph="" />
 			<Spacer />
 			<ImageCollection>
-				<Card
+				{members &&
+					members.map((member, index) => (
+						<Card
+							key={index}
+							image={member.image!}
+							imageBlurData={urlFor(member.image!).blur(1000).url()}
+							imageAltText={member.alt}
+							headline={member.name}
+							paragraph={member.role}
+							phone={member.phoneNumber ? member.phoneNumber : undefined}
+						/>
+					))}
+				{/* <Card
 					image={josefine}
 					imageBlurData={josefineBlur}
 					imageAltText="Portrait image of Josefine Fri, performer at Glitcher"
@@ -83,7 +96,7 @@ export default function About() {
 					headline="Misan Nykvist"
 					paragraph="Producer"
 					phone="+358 45 136 4006"
-				/>
+				/> */}
 			</ImageCollection>
 			<Spacer />
 			<CTAdisplay

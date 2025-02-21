@@ -6,7 +6,7 @@ interface cardOptions {
   imageBlurData?: string;
   imageAltText: string;
   headline: string;
-  subtitle: string[];
+  subtitle?: string[];
   paragraph?: string;
   paragraph2?: string;
   address?: string;
@@ -44,7 +44,7 @@ export default function Card({
           <h3 className="pt-2">{headline}</h3>
           <div className="">
             {subtitle &&
-              subtitle.map((content, index) => <p key={index}>{content}</p>)}
+              subtitle.map((content:string, index:number) => <p key={index}>{content}</p>)}
             <p>{paragraph}</p>
             <p>{paragraph2}</p>
           </div>

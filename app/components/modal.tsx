@@ -25,7 +25,7 @@ export function Modal({ links, open, setOpen }: links) {
             links.map((i, index) => (
               <Link key={index} href={i.url!} className="group">
                 <button className="flex px-4 md:px-6 pt-3 pb-[13px] md:pb-[14px] gap-5 bg-glitcherpink items-center justify-between -mx-1 rounded-full w-full">
-                  <div className="">{i.address}</div>
+                  <div className="">{i.venue}</div>
                   <div className="pt-0.5 -mr-2 -translate-x-2 group-hover:-translate-x-0 animate-fade-in transition-all duration-200">
                     <Image
                       src={CTAarrow}

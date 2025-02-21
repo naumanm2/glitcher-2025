@@ -74,7 +74,7 @@ export type Member = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  image?: {
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -83,10 +83,11 @@ export type Member = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    alt?: string;
+    alt: string;
     _type: "image";
   };
   name: string;
+  role: string;
   phoneNumber?: string;
   email?: string;
 };
@@ -102,7 +103,7 @@ export type Show = {
   subtitle?: Array<string>;
   live: boolean;
   tickets?: Array<{
-    address: string;
+    venue: string;
     url: string;
     _type: "inline";
     _key: string;
@@ -162,10 +163,48 @@ export type Generalinfo = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  phonenumber?: string;
-  email?: string;
+  title: string;
+  subtitle?: string;
+  phonenumber: string;
+  email: string;
   streetaddress?: string;
+  mainLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  icon: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  sponsors?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+    _key: string;
+  }>;
   introShort: string;
   introLong: Array<{
     children?: Array<{
@@ -266,7 +305,7 @@ export type SHOWS_QUERYResult = Array<{
   subtitle: Array<string> | null;
   live: boolean;
   tickets: Array<{
-    address: string;
+    venue: string;
     url: string;
     _type: "inline";
     _key: string;
@@ -311,7 +350,7 @@ export type SHOW_QUERYResult = {
   subtitle: Array<string> | null;
   live: boolean;
   tickets: Array<{
-    address: string;
+    venue: string;
     url: string;
     _type: "inline";
     _key: string;
@@ -348,6 +387,17 @@ export type SHOW_QUERYResult = {
     _key: string;
   }> | null;
 } | null;
+// Variable: MEMBERS_QUERY
+// Query: *[_type == "member"]{          _id, "image": image.asset->url, "alt":image.alt, name, role, phoneNumber, email          }
+export type MEMBERS_QUERYResult = Array<{
+  _id: string;
+  image: string | null;
+  alt: string;
+  name: string;
+  role: string;
+  phoneNumber: string | null;
+  email: string | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -355,5 +405,6 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"show\"]{\n    _id, title, subtitle, live, tickets, slug, \"mainImageUrl\":mainImage.asset->url, content, \n    }": SHOWS_QUERYResult;
     "*[_type == \"show\" && slug.current == $slug][0]{\n        _id, title, subtitle, live, tickets, slug, \"mainImageUrl\":mainImage.asset->url, content, \n        }": SHOW_QUERYResult;
+    "*[_type == \"member\"]{\n          _id, \"image\": image.asset->url, \"alt\":image.alt, name, role, phoneNumber, email\n          }": MEMBERS_QUERYResult;
   }
 }
