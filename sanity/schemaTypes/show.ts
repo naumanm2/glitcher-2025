@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import {GlitcherEye} from "@/app/(utils)/icon";
+import GlitcherEye from "@/app/(utils)/icon";
 
 export default defineType({
 	name: "show",
