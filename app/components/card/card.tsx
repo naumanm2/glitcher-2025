@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import faggeBlur from "@/public/performers/fagge-blur.jpg";
 import parsePhone from "@/app/(utils)/parse-phone";
 
@@ -17,7 +17,6 @@ interface cardOptions {
 
 export default function Card({
 	image,
-	imageBlurData,
 	imageAltText,
 	headline,
 	subtitle,

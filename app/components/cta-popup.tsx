@@ -16,11 +16,10 @@ interface linkOptions {
 interface CTAoptions {
 	text: string;
 	arrow: boolean;
-	links?: Array<linkOptions>;
 	tickets: Show["tickets"];
 }
 
-export default function PopupCTA({ text, arrow, links, tickets }: CTAoptions) {
+export default function PopupCTA({ text, arrow, tickets }: CTAoptions) {
 	const [open, setOpen] = useState(false);
 	return (
 		<>

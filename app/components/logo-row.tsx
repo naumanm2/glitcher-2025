@@ -1,32 +1,9 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-import konstsamfundet from "../../public/sponsors/s_konstsamfundet.png";
-import svenskakulturfonden from "../../public/sponsors/s_svenska-kulturfonden.png";
-import helsingforsstad from "../../public/sponsors/s_helsingfors-stad.png";
-import gesellius from "../../public/sponsors/s_gesellius.png";
-import suomenkulttuurirahasto from "../../public/sponsors/s_suomen-kulttuurirahasto.png";
-import ottomalm from "../../public/sponsors/s_ottomalm.png";
-import thuring from "../../public/sponsors/s_thuring.png";
-import tinfo from "../../public/sponsors/s_tinfo.png";
-import nygren from "../../public/sponsors/s_nygren.png";
-import krooks from "../../public/sponsors/s_krooks.png";
 import { client } from "@/sanity/lib/client";
 import { SPONSORS_QUERY } from "@/sanity/lib/queries";
-import { SPONSORS_QUERYResult } from "@/sanity/types";
 import urlFor from "../(utils)/image-builder";
 
-const logos = [
-	konstsamfundet,
-	svenskakulturfonden,
-	helsingforsstad,
-	gesellius,
-	suomenkulttuurirahasto,
-	ottomalm,
-	thuring,
-	tinfo,
-	nygren,
-	krooks,
-];
 
 const Logo = ({ image, alt }: { image: string; alt: string }) => (
 	<Image src={image} alt={alt} width={226} height={113} />
