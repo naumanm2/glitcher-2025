@@ -30,7 +30,7 @@ export default function ShowThePornHorrorMusicalTwo() {
 
   return (
     <div>
-      <Subhero
+      {/* <Subhero
         headline="The Porn Horror Musical 2"
         subtitle="22.5-24.5.2025 Tehdas Teatteri, Turku"
         ctaText="Buy tickets"
@@ -55,7 +55,7 @@ export default function ShowThePornHorrorMusicalTwo() {
       />
       <Spacer />
       <LogoRow />
-      <Spacer />
+      <Spacer /> */}
     </div>
   );
 }

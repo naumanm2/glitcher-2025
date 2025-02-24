@@ -53,7 +53,7 @@ export default function CTAdisplay({
         )}
         {tickets && tickets.length == 1 && (
           <>
-            <Link href={tickets[0].url!}>
+            <Link href={tickets[0].url}>
               <div className="group w-full bg-glitcherpink h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
                 <div className="text-[9vw] font-medium">{text}</div>
                 <div className="basis-1/12">

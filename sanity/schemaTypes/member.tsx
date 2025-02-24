@@ -37,12 +37,14 @@ export default defineType({
 			title: "Phone Number",
 			type: "string",
 			description: "Please add the country code prefix to phone number. Optional.",
+			validation: Rule => Rule.length(13).warning(`Phone number with a country code prefix should be exactly 13 characters.`)
 		}),
 		defineField({
 			name: "email",
 			title: "Email Address",
 			type: "string",
-			description: "Optional",
+			description: "Optional. Must be a valid email address.",
+      validation: Rule => Rule.email(),
 		}),
 	],
 });

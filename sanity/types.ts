@@ -99,7 +99,7 @@ export type Show = {
   _updatedAt: string;
   _rev: string;
   title: string;
-  slug?: Slug;
+  slug: Slug;
   subtitle?: Array<string>;
   live: boolean;
   tickets?: Array<{
@@ -157,17 +157,35 @@ export type Slug = {
   source?: string;
 };
 
-export type Generalinfo = {
+export type General = {
   _id: string;
-  _type: "generalinfo";
+  _type: "general";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
   title: string;
   subtitle?: string;
-  phonenumber: string;
-  email: string;
-  streetaddress?: string;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  phone?: string;
+  email?: string;
+  streetAddress?: string;
+  socials?: Array<{
+    social: string;
+    url: string;
+    _type: "inline";
+    _key: string;
+  }>;
   mainLogo: {
     asset?: {
       _ref: string;
@@ -294,11 +312,11 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Member | Show | Slug | Generalinfo | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Member | Show | Slug | General | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: SHOWS_QUERY
-// Query: *[_type == "show"]{    _id, title, subtitle, live, tickets, slug, "mainImageUrl":mainImage.asset->url, content,     }
+// Query: *[_type == "show" ]{    _id, title, subtitle, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
 export type SHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
@@ -310,8 +328,20 @@ export type SHOWS_QUERYResult = Array<{
     _type: "inline";
     _key: string;
   }> | null;
-  slug: Slug | null;
-  mainImageUrl: string | null;
+  slug: Slug;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  alt: string | null;
   content: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -343,7 +373,7 @@ export type SHOWS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: SHOW_QUERY
-// Query: *[_type == "show" && slug.current == $slug][0]{        _id, title, subtitle, live, tickets, slug, "mainImageUrl":mainImage.asset->url, content,         }
+// Query: *[_type == "show" && slug.current == $slug][0]{    _id, title, subtitle, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
 export type SHOW_QUERYResult = {
   _id: string;
   title: string;
@@ -355,8 +385,20 @@ export type SHOW_QUERYResult = {
     _type: "inline";
     _key: string;
   }> | null;
-  slug: Slug | null;
-  mainImageUrl: string | null;
+  slug: Slug;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  alt: string | null;
   content: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -388,23 +430,133 @@ export type SHOW_QUERYResult = {
   }> | null;
 } | null;
 // Variable: MEMBERS_QUERY
-// Query: *[_type == "member"]{          _id, "image": image.asset->url, "alt":image.alt, name, role, phoneNumber, email          }
+// Query: *[_type == "member" ]{    _id, name, role, image, "alt":image.alt, phoneNumber, email    }
 export type MEMBERS_QUERYResult = Array<{
   _id: string;
-  image: string | null;
-  alt: string;
   name: string;
   role: string;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  alt: string;
   phoneNumber: string | null;
   email: string | null;
 }>;
+// Variable: SPONSORS_QUERY
+// Query: *[_type == "general"][0]{    sponsors    }
+export type SPONSORS_QUERYResult = {
+  sponsors: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+} | null;
+// Variable: GENERAL_QUERY
+// Query: *[ _type == "general"][0]{    title, subtitle, mainImage, mainLogo, icon, introShort, introLong, email, socials, phone    }
+export type GENERAL_QUERYResult = {
+  title: string;
+  subtitle: string | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  mainLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  icon: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  introShort: string;
+  introLong: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  email: string | null;
+  socials: Array<{
+    social: string;
+    url: string;
+    _type: "inline";
+    _key: string;
+  }> | null;
+  phone: string | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"show\"]{\n    _id, title, subtitle, live, tickets, slug, \"mainImageUrl\":mainImage.asset->url, content, \n    }": SHOWS_QUERYResult;
-    "*[_type == \"show\" && slug.current == $slug][0]{\n        _id, title, subtitle, live, tickets, slug, \"mainImageUrl\":mainImage.asset->url, content, \n        }": SHOW_QUERYResult;
-    "*[_type == \"member\"]{\n          _id, \"image\": image.asset->url, \"alt\":image.alt, name, role, phoneNumber, email\n          }": MEMBERS_QUERYResult;
+    "*[_type == \"show\" ]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOWS_QUERYResult;
+    "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
+    "*[_type == \"member\" ]{\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
+    "*[_type == \"general\"][0]{\n    sponsors\n    }": SPONSORS_QUERYResult;
+    "*[ _type == \"general\"][0]{\n    title, subtitle, mainImage, mainLogo, icon, introShort, introLong, email, socials, phone\n    }": GENERAL_QUERYResult;
   }
 }

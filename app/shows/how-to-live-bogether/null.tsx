@@ -37,7 +37,7 @@ export default function ShowHowToLiveToGether() {
 
 	return (
 		<div>
-			<Subhero
+			{/* <Subhero
 				headline="How to Live Together"
 				subtitle="15.3.2025 - 29.3.2025 Viirus, Helsinki"
 				subtitle2="11.4.2025 – 12.4.2025 Konträr, Stockholm"
@@ -59,7 +59,7 @@ export default function ShowHowToLiveToGether() {
 			/>
 			<Spacer />
 			<LogoRow />
-			<Spacer />
+			<Spacer /> */}
 		</div>
 	);
 }

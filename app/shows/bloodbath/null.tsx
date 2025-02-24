@@ -33,7 +33,7 @@ export default function ShowBloodbath() {
 
   return (
     <div>
-      <Subhero
+      {/* <Subhero
         headline="Bloodbath"
         subtitle={["Lorem ipsum"]}
         ctaText="Buy tickets"
@@ -62,7 +62,7 @@ export default function ShowBloodbath() {
       />
       <Spacer />
       <LogoRow />
-      <Spacer />
+      <Spacer /> */}
     </div>
   );
 }
