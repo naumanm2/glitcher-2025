@@ -3,11 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Glitcher from "../../public/logos/glitcher-eye.svg";
 import CTA from "./cta";
 import { Dispatch, SetStateAction, useState } from "react";
-import { client } from "@/sanity/lib/client";
-import { GENERAL_QUERY } from "@/sanity/lib/queries";
 import { GENERAL_QUERYResult } from "@/sanity/types";
 import urlFor from "../(utils)/image-builder";
 import parsePhone from "../(utils)/parse-phone";

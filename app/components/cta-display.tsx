@@ -7,11 +7,6 @@ import { useState } from "react";
 import { Modal } from "./modal";
 import { Show } from "@/sanity/types";
 
-interface linkOptions {
-	text: string;
-	arrow: boolean;
-	address: string;
-}
 interface CTAoptions {
 	headline: string;
 	text: string;

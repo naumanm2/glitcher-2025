@@ -5,7 +5,6 @@ import {
 } from "@portabletext/react";
 
 import { Show } from "@/sanity/types";
-import CTA from "./cta";
 
 import Image from "next/image";
 import Link from "next/link";

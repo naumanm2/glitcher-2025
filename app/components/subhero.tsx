@@ -9,12 +9,6 @@ import Breadcrumb from "./breadcrumb";
 
 import { Show } from "@/sanity/types";
 
-interface CTAoptions {
-	text: string;
-	arrow: boolean;
-	address: string;
-}
-
 interface subheroOptions {
 	headline: string;
 	subtitle?: string[];
