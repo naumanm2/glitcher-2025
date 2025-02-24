@@ -61,7 +61,7 @@ export default function Subhero({
 								alt={imageAltText || "Glitcher show main poster"}
 								className="rounded-2xl [aspect-ratio:8/9]"
 								style={{ objectFit: "cover" }}
-								sizes="(max-width:768px) 100vw, 50vw"
+								sizes="(max-width:768px) 100vw, 51vw"
 							/>
 						)}
 					</div>
