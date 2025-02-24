@@ -8,11 +8,6 @@ import CTA from "./cta";
 import { Modal } from "./modal";
 import { Show } from "@/sanity/types";
 
-interface linkOptions {
-	text: string;
-	arrow: boolean;
-	address: string;
-}
 interface CTAoptions {
 	text: string;
 	arrow: boolean;
