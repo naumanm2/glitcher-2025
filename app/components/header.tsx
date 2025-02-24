@@ -10,6 +10,7 @@ import { client } from "@/sanity/lib/client";
 import { GENERAL_QUERY } from "@/sanity/lib/queries";
 import { GENERAL_QUERYResult } from "@/sanity/types";
 import urlFor from "../(utils)/image-builder";
+import parsePhone from "../(utils)/parse-phone";
 
 interface menuOptions {
 	open: boolean;
@@ -57,7 +58,7 @@ const Menu = ({ open, setOpen, content }: menuOptions) => {
 					</p>
 					<p className="p-2 hover:underline">
 						<a href={`mailto:${content?.phone || "tel:+358 45 136 4006"}`}>
-							{content?.phone || "tel:+358 45 136 4006"}
+							{parsePhone(content?.phone) || "tel:+358 45 136 4006"}
 						</a>
 					</p>
 				</div>

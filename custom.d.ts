@@ -7,3 +7,5 @@ declare module "*.svg" {
     const content: React.ImgHTMLAttributes;
     export default content;
   }
+
+  declare module '*.jpg';

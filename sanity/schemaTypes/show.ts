@@ -1,9 +1,11 @@
 import { defineField, defineType } from "sanity";
+import {GlitcherEye} from "@/app/(utils)/icon";
 
 export default defineType({
 	name: "show",
 	title: "Shows",
 	type: "document",
+	icon: GlitcherEye,
 	fields: [
 		defineField({
 			name: "title",

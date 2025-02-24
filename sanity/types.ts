@@ -90,6 +90,7 @@ export type Member = {
   role: string;
   phoneNumber?: string;
   email?: string;
+  orderRank?: string;
 };
 
 export type Show = {
@@ -187,6 +188,18 @@ export type General = {
     _key: string;
   }>;
   mainLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  secondaryLogo: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -485,7 +498,7 @@ export type SHOW_QUERYResult = {
   }> | null;
 } | null;
 // Variable: MEMBERS_QUERY
-// Query: *[_type == "member" ]{    _id, name, role, image, "alt":image.alt, phoneNumber, email    }
+// Query: *[_type == "member" ]|order(orderRank){    _id, name, role, image, "alt":image.alt, phoneNumber, email    }
 export type MEMBERS_QUERYResult = Array<{
   _id: string;
   name: string;
@@ -524,7 +537,7 @@ export type SPONSORS_QUERYResult = {
   }> | null;
 } | null;
 // Variable: GENERAL_QUERY
-// Query: *[ _type == "general"][0]{    title, subtitle, mainImage, mainLogo, icon, introShort, introLong, email, socials, phone    }
+// Query: *[ _type == "general"][0]{    title, subtitle, mainImage, mainLogo, secondaryLogo, icon, introShort, introLong, email, socials, phone    }
 export type GENERAL_QUERYResult = {
   title: string;
   subtitle: string | null;
@@ -541,6 +554,18 @@ export type GENERAL_QUERYResult = {
     _type: "image";
   };
   mainLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  };
+  secondaryLogo: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -611,8 +636,8 @@ declare module "@sanity/client" {
     "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": ACTIVESHOWS_QUERYResult;
     "*[_type == \"show\" && live==false]{\n  _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n  }": INACTIVESHOWS_QUERYResult;
     "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
-    "*[_type == \"member\" ]{\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
+    "*[_type == \"member\" ]|order(orderRank){\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
     "*[_type == \"general\"][0]{\n    sponsors\n    }": SPONSORS_QUERYResult;
-    "*[ _type == \"general\"][0]{\n    title, subtitle, mainImage, mainLogo, icon, introShort, introLong, email, socials, phone\n    }": GENERAL_QUERYResult;
+    "*[ _type == \"general\"][0]{\n    title, subtitle, mainImage, mainLogo, secondaryLogo, icon, introShort, introLong, email, socials, phone\n    }": GENERAL_QUERYResult;
   }
 }

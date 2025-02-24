@@ -10,13 +10,33 @@ import { structureTool } from "sanity/structure";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemaTypes";
-import { structure } from "./sanity/structure";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
+import { UserIcon, InfoOutlineIcon, PlayIcon } from '@sanity/icons'
 export default defineConfig({
-  basePath: "/studio",
-  projectId,
-  dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema,
-  plugins: [structureTool({ structure })],
+	basePath: "/studio",
+	projectId,
+	dataset,
+	// Add and edit the content schema in the './sanity/schemaTypes' folder
+	schema,
+	plugins: [
+		structureTool({
+			structure: (S, context) => {
+				return S.list()
+					.title("Content")
+					.items([
+						// Minimum required configuration
+						...S.documentTypeListItems().filter((item) => item.getId() !== "member"),
+						orderableDocumentListDeskItem({
+							type: "member",
+							S,
+							context,
+              icon: UserIcon,
+							title: "Members",
+							id: "members",
+						}),
+					]);
+			},
+		}),
+	],
 });

@@ -31,7 +31,7 @@ export default async function Home() {
 			<Spacer /> */}
 			{/* <Suspense fallback={<CardSkeletons n={2} />}>
 				<ShowCollection cap={2} headline="Current shows " /> */}
-			<CardCollection headline="Current shows">
+			<CardCollection headline="Current shows" ctaText="See all shows" address="/shows">
 				{shows.map((content, index) => (
 					<Card
 						key={index}

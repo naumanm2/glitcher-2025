@@ -1,9 +1,11 @@
 import { defineField, defineType } from "sanity";
+import { InfoOutlineIcon } from "@sanity/icons";
 
 export default defineType({
 	name: "general",
 	title: "General Information",
 	type: "document",
+	icon: InfoOutlineIcon,
 	fields: [
 		defineField({
 			name: "title",
@@ -85,7 +87,26 @@ export default defineType({
 			name: "mainLogo",
 			title: "Main Logo",
 			description:
-				"Giltcher logo used in front page hero and footer. Use .svg image format.",
+				"Giltcher logo used in front page hero. Use .svg image format.",
+			type: "image",
+			validation: (Rule) => Rule.required(),
+			options: {
+				accept: "image/*",
+			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Alternative text",
+					validation: (Rule) => Rule.required(),
+				},
+			],
+		}),
+		defineField({
+			name: "secondaryLogo",
+			title: "Secondary Logo",
+			description:
+				"Same thing as above, but now this time this is pink. Use .svg image format.",
 			type: "image",
 			validation: (Rule) => Rule.required(),
 			options: {

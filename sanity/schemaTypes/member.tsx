@@ -1,9 +1,11 @@
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 import { defineField, defineType } from "sanity";
 
 export default defineType({
 	name: "member",
 	title: "Members",
 	type: "document",
+	orderings: [orderRankOrdering],
 	fields: [
 		defineField({
 			name: "image",
@@ -46,5 +48,6 @@ export default defineType({
 			description: "Optional. Must be a valid email address.",
       validation: Rule => Rule.email(),
 		}),
+		orderRankField({ type: "category", newItemPosition: "before" }),
 	],
 });

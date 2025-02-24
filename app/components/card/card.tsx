@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import faggeBlur from "@/public/performers/fagge-blur.jpg";
+import parsePhone from "@/app/(utils)/parse-phone";
 
 interface cardOptions {
 	image: string | undefined;
@@ -84,7 +85,7 @@ export default function Card({
 					<p className="pb-1">{paragraph}</p>
 					<Link href={`tel:${phone}`}>
 						<p className="underline hover:opacity-70 animate-fade-in transition duration-200 ">
-							{phone}
+							{parsePhone(phone)}
 						</p>
 					</Link>
 				</div>

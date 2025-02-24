@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { GENERAL_QUERYResult } from "@/sanity/types";
 import urlFor from "../(utils)/image-builder";
+import parsePhone from "../(utils)/parse-phone";
 
 export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 	return (
@@ -30,7 +31,7 @@ export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 							</p>
 							<p className="p-2 hover:underline">
 								<a href={`mailto:${content?.phone || "tel:+358 45 136 4006"}`}>
-									{content?.phone || "tel:+358 45 136 4006"}
+									{parsePhone(content?.phone) || "tel:+358 45 136 4006"}
 								</a>
 							</p>
 						</div>
@@ -50,10 +51,10 @@ export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 					</div>
 				</div>
 				<div className="text-glitcherred w-full scale-[125%] md:scale-110 flex justify-center font-display [&>path]:fill-glitcherpink">
-					{content?.mainLogo && content.mainLogo.asset ? (
+					{content?.secondaryLogo && content.secondaryLogo.asset ? (
 						<Image
-							src={urlFor(content.mainLogo.asset).url()}
-							alt={content.mainLogo.alt || "Main image of Glitcher Collective"}
+							src={urlFor(content.secondaryLogo.asset).url()}
+							alt={content.secondaryLogo.alt || "Main image of Glitcher Collective"}
 							width={1080}
 							height={280}
 							className="w-[100vw]"

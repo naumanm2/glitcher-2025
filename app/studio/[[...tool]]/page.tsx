@@ -13,12 +13,6 @@ import config from "@/sanity.config";
 
 export const dynamic = "force-static";
 
-import {
-  metadata as studioMetadata,
-  viewport as studioViewport,
-} from "next-sanity/studio";
-import { Metadata, Viewport } from "next";
-
 // Set the correct `viewport`, `robots` and `referrer` meta tags
 
 

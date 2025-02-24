@@ -27,7 +27,7 @@ export default function CTAdisplay({ headline, text, address, tickets }: CTAopti
 				<div className="w-full font-medium text-center text-[10vw] leading-none -mb-[2.5vw]">
 					{headline}
 				</div>
-				{tickets && tickets.length > 1 && !address && (
+				{tickets && tickets.length > 1 && (
 					<>
 						{open && <Modal links={tickets} setOpen={setOpen} open={open} />}
 						<button onClick={() => setOpen(!open)}>
@@ -64,7 +64,6 @@ export default function CTAdisplay({ headline, text, address, tickets }: CTAopti
 						</Link>
 					</>
 				)}
-
 				{address && !tickets && (
 					<>
 						<Link href={address}>
@@ -82,11 +81,12 @@ export default function CTAdisplay({ headline, text, address, tickets }: CTAopti
 							</div>
 						</Link>
 					</>
+				)}{" "}
+				{!address && !tickets && (
+					<div className="w-full bg-stone-300 h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
+						<div className="text-[9vw] font-medium">Not available :(</div>
+					</div>
 				)}
-				<div className="w-full bg-stone-300 h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
-					<div className="text-[9vw] font-medium">Not available :(</div>
-						
-				</div>
 			</div>
 		</>
 	);
