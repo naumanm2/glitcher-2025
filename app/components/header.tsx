@@ -6,8 +6,8 @@ import Image from "next/image";
 import CTA from "./cta";
 import { Dispatch, SetStateAction, useState } from "react";
 import { GENERAL_QUERYResult } from "@/sanity/types";
-import urlFor from "../(utils)/image-builder";
-import parsePhone from "../(utils)/parse-phone";
+import urlFor from "../../utils/image-builder";
+import parsePhone from "../../utils/parse-phone";
 
 interface menuOptions {
 	open: boolean;

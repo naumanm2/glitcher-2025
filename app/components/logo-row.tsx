@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { client } from "@/sanity/lib/client";
 import { SPONSORS_QUERY } from "@/sanity/lib/queries";
-import urlFor from "../(utils)/image-builder";
+import urlFor from "../../utils/image-builder";
 
 
 const Logo = ({ image, alt }: { image: string; alt: string }) => (

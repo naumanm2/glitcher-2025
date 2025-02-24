@@ -9,7 +9,7 @@ import { GENERAL_QUERY, ACTIVESHOWS_QUERY } from "@/sanity/lib/queries";
 import { Suspense } from "react";
 import HeroSkeleton from "./components/(hero)/heroSkeleton";
 import Card from "./components/card/card";
-import urlFor from "./(utils)/image-builder";
+import urlFor from "../utils/image-builder";
 import CardCollection from "./components/card-collection";
 
 export default async function Home() {

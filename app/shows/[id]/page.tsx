@@ -1,4 +1,4 @@
-import urlFor from "@/app/(utils)/image-builder";
+import urlFor from "@/utils/image-builder";
 import CTAdisplay from "@/app/components/cta-display";
 import LogoRow from "@/app/components/logo-row";
 import RichTextParagraph from "@/app/components/richtext-paragraph";

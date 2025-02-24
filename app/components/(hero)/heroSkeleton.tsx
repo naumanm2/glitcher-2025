@@ -1,4 +1,4 @@
-import { SVGSkeleton, Skeleton } from "@/app/(utils)/skeleton";
+import { SVGSkeleton, Skeleton } from "@/utils/skeleton";
 
 export default function HeroSkeleton() {
 	return (

@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/(utils)',
+        destination: '/',
+      },
+    ]
+  },
 };
 
 const withMDX = createMDX({});

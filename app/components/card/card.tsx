@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import faggeBlur from "@/public/performers/fagge-blur.jpg";
-import parsePhone from "@/app/(utils)/parse-phone";
+import parsePhone from "@/utils/parse-phone";
 
 interface cardOptions {
 	image: string | undefined;

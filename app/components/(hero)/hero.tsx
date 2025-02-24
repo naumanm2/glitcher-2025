@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import GlitcherMainBlur from "@/public/general/glitcher-blur.jpg";
 import { client } from "@/sanity/lib/client";
-import urlFor from "../../(utils)/image-builder";
+import urlFor from "../../../utils/image-builder";
 import { GENERAL_QUERY } from "@/sanity/lib/queries";
 
 export default async function Hero() {

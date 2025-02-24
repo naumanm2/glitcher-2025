@@ -9,7 +9,7 @@ import { Metadata } from "next";
 
 import { client } from "@/sanity/lib/client";
 import { GENERAL_QUERY, MEMBERS_QUERY } from "@/sanity/lib/queries";
-import urlFor from "../(utils)/image-builder";
+import urlFor from "../../utils/image-builder";
 import RichTextParagraph from "../components/richtext-paragraph";
 
 export const metadata: Metadata = {

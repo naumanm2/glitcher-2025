@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 import Card from "./card/card";
 import CTA from "./cta";
 import { ACTIVESHOWS_QUERY } from "@/sanity/lib/queries";
-import urlFor from "../(utils)/image-builder";
+import urlFor from "../../utils/image-builder";
 import faggeBlur from "@/public/performers/fagge-blur.jpg";
 
 interface showCollectionType {

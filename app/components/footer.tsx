@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { GENERAL_QUERYResult } from "@/sanity/types";
-import urlFor from "../(utils)/image-builder";
-import parsePhone from "../(utils)/parse-phone";
+import urlFor from "../../utils/image-builder";
+import parsePhone from "../../utils/parse-phone";
 
 export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 	return (

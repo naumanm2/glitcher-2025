@@ -6,7 +6,7 @@ import Spacer from "../components/spacer";
 import { Metadata } from "next";
 import { ACTIVESHOWS_QUERY, INACTIVESHOWS_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
-import urlFor from "../(utils)/image-builder";
+import urlFor from "../../utils/image-builder";
 
 export const metadata: Metadata = {
 	title: "Shows",
