@@ -1,12 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Glitcher from "../../public/logos/glitcher-pink.svg";
 import { GENERAL_QUERYResult } from "@/sanity/types";
 import urlFor from "../(utils)/image-builder";
 
 export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
-	console.log(content);
 	return (
 		<footer>
 			<div className="bg-foreground rounded-3xl flex flex-col gap-16 md:gap-16 text-white p-4 md:p-8">
@@ -55,7 +53,6 @@ export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 					{content?.mainLogo && content.mainLogo.asset ? (
 						<Image
 							src={urlFor(content.mainLogo.asset).url()}
-							blurDataURL={urlFor(content.mainLogo.asset).blur(1000).url()}
 							alt={content.mainLogo.alt || "Main image of Glitcher Collective"}
 							width={1080}
 							height={280}

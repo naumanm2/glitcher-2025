@@ -9,7 +9,7 @@ export default defineType({
 			name: "title",
 			title: "Title",
 			type: "string",
-			validation: (rule) => rule.required().min(10).max(80),
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "slug",

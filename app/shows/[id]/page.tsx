@@ -25,9 +25,10 @@ export default async function showPage({ params }: { params: Promise<{ id: strin
 		<>
 			<Subhero
 				headline={content.title}
-				subtitle={content.subtitle!}
+				subtitle={content.subtitle || []}
 				tickets={content.tickets!}
 				image={urlFor(content.mainImage).url()}
+				imageAltText={content.mainImage.alt}
 				imageBlurData={urlFor(content.mainImage).blur(1000).url()}
 				ctaText="Buy tickets"
 			/>

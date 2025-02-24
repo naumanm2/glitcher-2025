@@ -315,13 +315,68 @@ export type SanityImageMetadata = {
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Member | Show | Slug | General | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
-// Variable: SHOWS_QUERY
-// Query: *[_type == "show" ]{    _id, title, subtitle, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
-export type SHOWS_QUERYResult = Array<{
+// Variable: ACTIVESHOWS_QUERY
+// Query: *[_type == "show" && live==true]{    _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
+export type ACTIVESHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
   subtitle: Array<string> | null;
-  live: boolean;
+  tickets: Array<{
+    venue: string;
+    url: string;
+    _type: "inline";
+    _key: string;
+  }> | null;
+  slug: Slug;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  alt: string | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }> | null;
+}>;
+// Variable: INACTIVESHOWS_QUERY
+// Query: *[_type == "show" && live==false]{  _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content,   }
+export type INACTIVESHOWS_QUERYResult = Array<{
+  _id: string;
+  title: string;
+  subtitle: Array<string> | null;
   tickets: Array<{
     venue: string;
     url: string;
@@ -553,7 +608,8 @@ export type GENERAL_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"show\" ]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOWS_QUERYResult;
+    "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": ACTIVESHOWS_QUERYResult;
+    "*[_type == \"show\" && live==false]{\n  _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n  }": INACTIVESHOWS_QUERYResult;
     "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
     "*[_type == \"member\" ]{\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
     "*[_type == \"general\"][0]{\n    sponsors\n    }": SPONSORS_QUERYResult;

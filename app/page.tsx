@@ -1,33 +1,36 @@
 // import TextWithLead from "./components/text-with-lead";
 import Spacer from "./components/spacer";
-import CardCollection from "./components/card-collection";
-import Card from "./components/card/card";
-import Hero from "./components/hero";
+import Hero from "./components/(hero)/hero";
 import TextParagraph from "./components/text-paragraph";
 import CTAdisplay from "./components/cta-display";
 import LogoRow from "./components/logo-row";
 import { client } from "@/sanity/lib/client";
-import { GENERAL_QUERY, SHOWS_QUERY } from "@/sanity/lib/queries";
+import { GENERAL_QUERY, ACTIVESHOWS_QUERY } from "@/sanity/lib/queries";
+import ShowCollection from "./components/show-collection";
+import { Suspense } from "react";
+import HeroSkeleton from "./components/(hero)/heroSkeleton";
+import CardSkeletons from "./components/card/cardSkeleton";
+import Card from "./components/card/card";
 import urlFor from "./(utils)/image-builder";
+import CardCollection from "./components/card-collection";
 
 export default async function Home() {
-	const shows = await client.fetch(SHOWS_QUERY);
 	const general = await client.fetch(GENERAL_QUERY);
+	const shows = await client.fetch(ACTIVESHOWS_QUERY);
 
 	return (
 		<div>
-			<Hero
-				heading={general?.title || "Theatre Collective"}
-				subtitle={general?.subtitle || undefined}
-				image={general?.mainImage}
-				logo={general?.mainLogo}
-			/>
+			<Suspense fallback={<HeroSkeleton />}>
+				<Hero />
+			</Suspense>
 			<Spacer />
 			{/* <TextWithLead
 				lead="–Lasse Garoff, Yle 18.11.2023"
 				paragraph="På teaterscenen gottar sig Glitcher i allt det mörka och snaskiga vi älskar: ”Popkultur är lite syndigt”"
 			/> 
 			<Spacer /> */}
+			{/* <Suspense fallback={<CardSkeletons n={2} />}>
+				<ShowCollection cap={2} headline="Current shows " /> */}
 			<CardCollection headline="Current shows">
 				{shows.map((content, index) => (
 					<Card
@@ -41,6 +44,7 @@ export default async function Home() {
 					/>
 				))}
 			</CardCollection>
+			{/* </Suspense> */}
 			<Spacer />
 			<TextParagraph
 				headline="About Glitcher"

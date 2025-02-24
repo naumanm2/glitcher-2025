@@ -22,7 +22,6 @@ interface subheroOptions {
 	imageBlurData?: string;
 	imageAltText?: string;
 	ctaText?: string;
-	links?: Array<CTAoptions>;
 	tickets?: Show["tickets"];
 }
 
@@ -33,10 +32,8 @@ export default function Subhero({
 	imageAltText,
 	subtitle,
 	ctaText,
-	links,
 	tickets,
 }: subheroOptions) {
-	console.log("imageblur:" + imageBlurData);
 	return (
 		<div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[160px] md:pt-[240px]">
 			<div className="flex flex-col gap-6">
@@ -45,9 +42,9 @@ export default function Subhero({
 					<h1 className={`${CyGroteskHero.variable} font-display`}>{headline}</h1>
 				</div>
 				<div className="flex-1 flex flex-col gap-2 md:gap-2">
-					{/* {subtitle && subtitle.length>1 && subtitle?.map((subtitle, index) => (
-            <p key={index}>{subtitle}</p>
-          ))} */}
+					{subtitle &&
+						subtitle.length > 1 &&
+						subtitle?.map((subtitle, index) => <p key={index}>{subtitle}</p>)}
 				</div>
 
 				{tickets && ctaText && <PopupCTA text={ctaText} tickets={tickets} arrow={true} />}
@@ -61,9 +58,10 @@ export default function Subhero({
 								width={1600}
 								height={1800}
 								placeholder="blur"
-								alt={"imageAltText"}
+								alt={imageAltText || "Glitcher show main poster"}
 								className="rounded-2xl"
-								style={{ objectFit: "cover", width: "auto" }}
+								style={{ objectFit: "cover" }}
+								sizes="(max-width:768px) 100vw, 50vw"
 							/>
 						)}
 					</div>

@@ -87,6 +87,7 @@ export default function Header({ content }: { content: GENERAL_QUERYResult }) {
 							alt={content.mainImage.alt}
 							width={96}
 							height={96}
+							style={{ height: "auto" }}
 						/>
 					)}
 				</Link>

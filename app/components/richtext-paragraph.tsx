@@ -25,17 +25,11 @@ interface SanityLink {
 
 interface RichTextParagraphOptions {
 	headline?: string;
-	paragraph?: string;
-	ingress?: string;
-	ctaText?: string;
-	ctaAddress?: string;
 	content: Show["content"];
 }
 
 export default function RichTextParagraph({
 	headline,
-	ctaText,
-	ctaAddress,
 	content,
 }: RichTextParagraphOptions) {
 	const components: Partial<PortableTextReactComponents> = {
@@ -70,13 +64,6 @@ export default function RichTextParagraph({
 			<div className="flex-1">{headline && <h2>{headline}</h2>}</div>
 			<div className="flex-1 md:pt-4 [&>p]:pb-6">
 				{content && <PortableText value={content} components={components} />}
-				{ctaAddress && (
-					<CTA text={ctaText || "Read more"} arrow={true} address={ctaAddress} />
-				)}
-				{/* {ingress && (
-          <strong className="pb-4 md:pb-6 inline-block">{ingress}</strong>
-        )}
-        <p className="pb-4 md:pb-6">{paragraph}</p> */}
 			</div>
 		</div>
 	);

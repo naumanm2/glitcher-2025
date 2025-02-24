@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-import urlFor from "../../(utils)/image-builder";
+import faggeBlur from "@/public/performers/fagge-blur.jpg";
 
 interface cardOptions {
 	image: string | undefined;
@@ -30,19 +30,24 @@ export default function Card({
 			{address ? (
 				<div className="flex flex-col gap-2 flex-1">
 					<Link href={address} className="flex-1">
-						<div className="overflow-hidden rounded-xl flex-1">
+						<div className="overflow-hidden rounded-xl flex-1 [aspect-ratio:8/9]">
 							{!image ? (
 								<p>No image available</p>
 							) : (
 								<Image
 									src={image}
 									alt={imageAltText || "Sanity Image"}
-									blurDataURL={imageBlurData}
+									blurDataURL={faggeBlur.src}
 									width={1600}
 									height={1800}
 									placeholder="blur"
 									className="animate-fade-in transition duration-300 hover:scale-110"
-									style={{ objectFit: "cover", height: "auto" }}
+									style={{
+										objectFit: "cover",
+										objectPosition: "50% 50%",
+										height: "100%"
+									}}
+									sizes="(max-width:768px) 100vw, 33vw"
 								/>
 							)}
 						</div>
@@ -59,18 +64,19 @@ export default function Card({
 				</div>
 			) : (
 				<div className="flex flex-col pb-4">
-					<div className="overflow-hidden rounded-xl flex-1">
+					<div className="overflow-hidden rounded-xl flex-1 [aspect-ratio:8/9]">
 						{!image ? (
 							<p>No image available</p>
 						) : (
 							<Image
 								src={image}
 								alt={imageAltText || "Sanity Image"}
-								blurDataURL={imageBlurData}
+								blurDataURL={faggeBlur.src}
 								width={1600}
 								height={1800}
 								placeholder="blur"
 								style={{ objectFit: "cover" }}
+								sizes="(max-width:768px) 100vw, 33vw"
 							/>
 						)}
 					</div>
