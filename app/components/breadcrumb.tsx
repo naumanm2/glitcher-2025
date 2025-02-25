@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 export default function Breadcrumb() {
 	const paths = usePathname();
 	const pathNames = paths.split("/").filter((path) => path);
-
 	const length = pathNames.length;
 
 	return (

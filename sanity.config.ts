@@ -12,7 +12,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemaTypes";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
-import { UserIcon, InfoOutlineIcon, PlayIcon } from '@sanity/icons'
+import { UserIcon } from '@sanity/icons'
 export default defineConfig({
 	basePath: "/studio",
 	projectId,
