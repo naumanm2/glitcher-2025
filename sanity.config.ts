@@ -31,20 +31,20 @@ export default defineConfig({
 							(item) => item.getId() !== "show" && item.getId() !== "member"
 						),
 						orderableDocumentListDeskItem({
-							type: "member",
-							S,
-							context,
-							icon: UserIcon,
-							title: "Members",
-							id: "members",
-						}),
-						orderableDocumentListDeskItem({
 							type: "show",
 							S,
 							context,
 							icon: GlitcherEye,
 							title: "Shows",
 							id: "shows",
+						}),
+						orderableDocumentListDeskItem({
+							type: "member",
+							S,
+							context,
+							icon: UserIcon,
+							title: "Members",
+							id: "members",
 						}),
 					]);
 			},
