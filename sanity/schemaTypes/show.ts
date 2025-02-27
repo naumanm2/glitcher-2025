@@ -1,11 +1,11 @@
 import { defineField, defineType } from "sanity";
-import GlitcherEye from "@/utils/icon";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export default defineType({
 	name: "show",
 	title: "Shows",
 	type: "document",
-	icon: GlitcherEye,
+	orderings: [orderRankOrdering],
 	fields: [
 		defineField({
 			name: "title",
@@ -91,5 +91,6 @@ export default defineType({
 			type: "array",
 			of: [{ type: "block" }, { type: "image" }],
 		}),
+		orderRankField({ type: "category", newItemPosition: "before" }),
 	],
 });

@@ -50,7 +50,7 @@ export default function Footer({ content }: { content: GENERAL_QUERYResult }) {
 						</div>
 					</div>
 				</div>
-				<div className="text-glitcherred w-full scale-[125%] md:scale-110 flex justify-center font-display [&>path]:fill-glitcherpink">
+				<div className="text-glitcherred w-full scale-[125%] md:scale-110 flex justify-center font-display [&>path]:fill-glitcherpink -my-[7vw] md:-my-[6vw]">
 					{content?.secondaryLogo && content.secondaryLogo.asset ? (
 						<Image
 							src={urlFor(content.secondaryLogo.asset).url()}

@@ -4,7 +4,7 @@ export const ACTIVESHOWS_QUERY = defineQuery(`*[_type == "show" && live==true]{
     _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content, 
     }`);
 
-export const INACTIVESHOWS_QUERY = defineQuery(`*[_type == "show" && live==false]{
+export const INACTIVESHOWS_QUERY = defineQuery(`*[_type == "show" && live==false]|order(orderRank){
   _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content, 
   }`);
 
