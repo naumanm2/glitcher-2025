@@ -12,7 +12,8 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemaTypes";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
-import { UserIcon, InfoOutlineIcon, PlayIcon } from '@sanity/icons'
+import { UserIcon } from '@sanity/icons'
+import GlitcherEye from "@/app/(utils)/icon";
 export default defineConfig({
 	basePath: "/studio",
 	projectId,
@@ -26,7 +27,7 @@ export default defineConfig({
 					.title("Content")
 					.items([
 						// Minimum required configuration
-						...S.documentTypeListItems().filter((item) => item.getId() !== "member"),
+						...S.documentTypeListItems().filter((item) => item.getId() !== "show" && item.getId() !== "member"),
 						orderableDocumentListDeskItem({
 							type: "member",
 							S,
@@ -34,6 +35,14 @@ export default defineConfig({
               icon: UserIcon,
 							title: "Members",
 							id: "members",
+						}),
+						orderableDocumentListDeskItem({
+							type: "show",
+							S,
+							context,
+							icon: GlitcherEye,
+							title: "Shows",
+							id: "shows",
 						}),
 					]);
 			},
