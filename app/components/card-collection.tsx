@@ -24,7 +24,7 @@ export default function CardCollection({
 					{address && <CTA text={ctaText || "See more"} address={address} arrow={true} />}
 				</div>
 			</div>
-			<div className="flex flex-col md:flex-row flex-wrap gap-8 [&>*]:flex-1 [&>*]:min-w-[30%] [&>*:nth-child(4n)]:md:max-w-[calc(33.33%-24px);] md:gap-8">
+			<div className="flex flex-col md:flex-row flex-wrap gap-8 [&>*]:flex-1 [&>*]:min-w-[30%] [&>*:nth-child(n+4)]:md:max-w-[calc(33.33%-24px);] md:gap-8">
 				{children}
 			</div>
 			<div className="w-full md:hidden">
