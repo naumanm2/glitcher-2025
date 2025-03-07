@@ -39,6 +39,12 @@ export default defineType({
 			of: [{ type: "string" }],
 		}),
 		defineField({
+			name: "year",
+			title: "Year published",
+			type: "string",
+			description: "Optional."
+		}),
+		defineField({
 			title: "Is the show currently running?",
 			name: "live",
 			type: "boolean",

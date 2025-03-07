@@ -13,6 +13,7 @@ interface subheroOptions {
 	headline: string;
 	subtitle?: string[];
 	image?: string;
+	year?: string;
 	imageBlurData?: string;
 	imageAltText?: string;
 	ctaText?: string;
@@ -25,6 +26,7 @@ export default function Subhero({
 	imageBlurData,
 	imageAltText,
 	subtitle,
+	year,
 	ctaText,
 	tickets,
 }: subheroOptions) {
@@ -33,12 +35,13 @@ export default function Subhero({
 			<div className="flex flex-col gap-6">
 				<Breadcrumb />
 				<div className="text-glitcherred w-full">
-					<h1 className={`${CyGroteskHero.variable} font-display`}>{headline}</h1>
+					<h1 className={`${CyGroteskHero.variable} font-display`}>
+						{headline}
+						{year && <sup> {year}</sup>}
+					</h1>
 				</div>
-				<div className="flex-1 flex flex-col gap-2 md:gap-2">
-					{subtitle &&
-						subtitle.length > 1 &&
-						subtitle?.map((subtitle, index) => <p key={index}>{subtitle}</p>)}
+				<div className="flex-1 flex flex-col gap-2">
+					{subtitle && subtitle.map((subtitle, index) => <p key={index}>{subtitle}</p>)}
 				</div>
 
 				{tickets && ctaText && <PopupCTA text={ctaText} tickets={tickets} arrow={true} />}

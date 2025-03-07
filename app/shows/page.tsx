@@ -31,6 +31,7 @@ export default async function Shows() {
 						imageAltText={""}
 						headline={content.title}
 						subtitle={content.subtitle || []}
+						year={content.year || undefined}
 						address={`/shows/${content.slug.current}`}
 					/>
 				))}
@@ -48,6 +49,7 @@ export default async function Shows() {
 							imageAltText={""}
 							headline={content.title}
 							subtitle={content.subtitle || []}
+							year={content.year || undefined}
 							address={`/shows/${content.slug.current}`}
 						/>
 					))}

@@ -27,6 +27,7 @@ export default async function showPage({ params }: { params: Promise<{ id: strin
 				headline={content.title}
 				subtitle={content.subtitle || []}
 				tickets={content.tickets!}
+				year={content.year || undefined}
 				image={urlFor(content.mainImage).url()}
 				imageAltText={content.mainImage.alt}
 				imageBlurData={urlFor(content.mainImage).blur(1000).url()}

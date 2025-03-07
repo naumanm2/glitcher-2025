@@ -7,7 +7,7 @@ import { GENERAL_QUERY } from "@/sanity/lib/queries";
 
 export default async function Hero() {
 	const content = await client.fetch(GENERAL_QUERY);
-
+	
 	if (!content) return <p>Error</p>;
 	return (
 		<div className="rounded-2xl bg-glitcherpink w-full p-4 md:p-6 pt-[80px] md:pt-[140px] relative">

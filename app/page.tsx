@@ -38,6 +38,7 @@ export default async function Home() {
 						imageAltText={content.alt || "Show main image"}
 						headline={content.title}
 						subtitle={content.subtitle!}
+						year={content.year || undefined}
 						address={`/shows/${content.slug.current}`}
 					/>
 				))}

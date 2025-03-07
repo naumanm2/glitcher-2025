@@ -526,6 +526,13 @@
         },
         "optional": true
       },
+      "year": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "live": {
         "type": "objectAttribute",
         "value": {

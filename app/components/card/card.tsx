@@ -9,6 +9,7 @@ interface cardOptions {
 	imageAltText: string;
 	headline: string;
 	subtitle?: string[];
+	year?: string;
 	paragraph?: string;
 	paragraph2?: string;
 	address?: string;
@@ -20,6 +21,7 @@ export default function Card({
 	imageAltText,
 	headline,
 	subtitle,
+	year,
 	paragraph,
 	paragraph2,
 	address,
@@ -45,14 +47,16 @@ export default function Card({
 									style={{
 										objectFit: "cover",
 										objectPosition: "50% 50%",
-										height: "100%"
+										height: "100%",
 									}}
 									sizes="(max-width:768px) 100vw, 33vw"
 								/>
 							)}
 						</div>
 					</Link>
-					<h3 className="pt-2">{headline}</h3>
+					<h3 className="pt-2">
+						{headline} {year && <sup> {year}</sup>}
+					</h3>
 					<div className="">
 						{subtitle &&
 							subtitle.map((content: string, index: number) => (
@@ -80,7 +84,9 @@ export default function Card({
 							/>
 						)}
 					</div>
-					<h3 className="pt-3 pb-2">{headline}</h3>
+					<h3 className="pt-3 pb-2">
+						{headline} {year && <sup> {year}</sup>}
+					</h3>
 					<p className="pb-1">{paragraph}</p>
 					<Link href={`tel:${phone}`}>
 						<p className="underline hover:opacity-70 animate-fade-in transition duration-200 ">

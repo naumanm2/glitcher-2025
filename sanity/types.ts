@@ -102,6 +102,7 @@ export type Show = {
   title: string;
   slug: Slug;
   subtitle?: Array<string>;
+  year?: string;
   live: boolean;
   tickets?: Array<{
     venue: string;
@@ -330,11 +331,12 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: ACTIVESHOWS_QUERY
-// Query: *[_type == "show" && live==true]{    _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
+// Query: *[_type == "show" && live==true]{    _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
 export type ACTIVESHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
   subtitle: Array<string> | null;
+  year: string | null;
   tickets: Array<{
     venue: string;
     url: string;
@@ -386,11 +388,12 @@ export type ACTIVESHOWS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: INACTIVESHOWS_QUERY
-// Query: *[_type == "show" && live==false]|order(orderRank){  _id, title, subtitle, tickets, slug, mainImage, "alt":mainImage.alt, content,   }
+// Query: *[_type == "show" && live==false]|order(orderRank){  _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content,   }
 export type INACTIVESHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
   subtitle: Array<string> | null;
+  year: string | null;
   tickets: Array<{
     venue: string;
     url: string;
@@ -442,11 +445,12 @@ export type INACTIVESHOWS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: SHOW_QUERY
-// Query: *[_type == "show" && slug.current == $slug][0]{    _id, title, subtitle, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
+// Query: *[_type == "show" && slug.current == $slug][0]{    _id, title, subtitle, year, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
 export type SHOW_QUERYResult = {
   _id: string;
   title: string;
   subtitle: Array<string> | null;
+  year: string | null;
   live: boolean;
   tickets: Array<{
     venue: string;
@@ -634,9 +638,9 @@ export type GENERAL_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": ACTIVESHOWS_QUERYResult;
-    "*[_type == \"show\" && live==false]|order(orderRank){\n  _id, title, subtitle, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n  }": INACTIVESHOWS_QUERYResult;
-    "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
+    "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": ACTIVESHOWS_QUERYResult;
+    "*[_type == \"show\" && live==false]|order(orderRank){\n  _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n  }": INACTIVESHOWS_QUERYResult;
+    "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, year, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
     "*[_type == \"member\" ]|order(orderRank){\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
     "*[_type == \"general\"][0]{\n    sponsors\n    }": SPONSORS_QUERYResult;
     "*[ _type == \"general\"][0]{\n    title, subtitle, mainImage, mainLogo, secondaryLogo, icon, introShort, introLong, email, socials, phone\n    }": GENERAL_QUERYResult;
