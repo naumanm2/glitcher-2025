@@ -79,7 +79,7 @@ export default function CTAdisplay({ headline, text, address, tickets }: CTAopti
 				)}{" "}
 				{!address && !tickets && (
 					<div className="w-full bg-stone-300 h-[24vw] rounded-full flex flex-row justify-center items-center gap-12 md:gap-24">
-						<div className="text-[9vw] font-medium">Not available :(</div>
+						<div className="text-[9vw] font-medium">No shows :(</div>
 					</div>
 				)}
 			</div>
