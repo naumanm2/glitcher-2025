@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
 			revalidatePath("/");
 			revalidatePath("/shows");
 			revalidatePath("/about");
+      return NextResponse.json({ message: `Revalidated all pages ${slug}` });
 		}
 
 		// Revalidate the specific page
