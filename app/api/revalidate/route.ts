@@ -10,8 +10,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
-  console.log(req.json())
-
 	try {
 		const { slug } = await req.json();
 
