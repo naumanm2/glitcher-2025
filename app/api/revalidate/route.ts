@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
 export async function POST(req: NextRequest) {
-	const secret = req.nextUrl.searchParams.get("secret");
 
 	// Protect the endpoint with a secret token
-	if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
-		return NextResponse.json({ message: "Invalid token" }, { status: 401 });
-	}
+  const secret = req.headers.get('authorization')?.replace('Bearer ', '');
+
+  if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+  }
+
+  console.log(req.json())
 
 	try {
 		const { slug } = await req.json();
