@@ -15,39 +15,39 @@ import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { UserIcon } from "@sanity/icons";
 import GlitcherEye from "@/utils/icon";
 export default defineConfig({
-	basePath: "/studio",
-	projectId,
-	dataset,
-	// Add and edit the content schema in the './sanity/schemaTypes' folder
-	schema,
-	plugins: [
-		structureTool({
-			structure: (S, context) => {
-				return S.list()
-					.title("Content")
-					.items([
-						// Minimum required configuration
-						...S.documentTypeListItems().filter(
-							(item) => item.getId() !== "show" && item.getId() !== "member"
-						),
-						orderableDocumentListDeskItem({
-							type: "show",
-							S,
-							context,
-							icon: GlitcherEye,
-							title: "Shows",
-							id: "shows",
-						}),
-						orderableDocumentListDeskItem({
-							type: "member",
-							S,
-							context,
-							icon: UserIcon,
-							title: "Members",
-							id: "members",
-						}),
-					]);
-			},
-		}),
-	],
+  basePath: "/studio",
+  projectId,
+  dataset,
+  // Add and edit the content schema in the './sanity/schemaTypes' folder
+  schema,
+  plugins: [
+    structureTool({
+      structure: (S, context) => {
+        return S.list()
+          .title("Content")
+          .items([
+            // Minimum required configuration
+            ...S.documentTypeListItems().filter(
+              (item) => item.getId() !== "show" && item.getId() !== "member"
+            ),
+            orderableDocumentListDeskItem({
+              type: "show",
+              S,
+              context,
+              icon: GlitcherEye,
+              title: "Shows",
+              id: "shows",
+            }),
+            orderableDocumentListDeskItem({
+              type: "member",
+              S,
+              context,
+              icon: UserIcon,
+              title: "Members",
+              id: "members",
+            }),
+          ]);
+      },
+    }),
+  ],
 });
