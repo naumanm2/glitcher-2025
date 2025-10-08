@@ -99,6 +99,20 @@ export type Show = {
     _type: "image";
     _key: string;
   }>;
+  attachments?: Array<{
+    title?: string;
+    file?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+      };
+      media?: unknown;
+      _type: "file";
+    };
+    _key: string;
+  }>;
   orderRank?: string;
 };
 
@@ -340,7 +354,7 @@ export type AllSanitySchemaTypes = Member | Show | General | SanityImagePaletteS
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: ACTIVESHOWS_QUERY
-// Query: *[_type == "show" && live==true]{    _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
+// Query: *[_type == "show" && live==true]{    _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content    }
 export type ACTIVESHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
@@ -399,7 +413,7 @@ export type ACTIVESHOWS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: INACTIVESHOWS_QUERY
-// Query: *[_type == "show" && live==false]|order(orderRank){  _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content,   }
+// Query: *[_type == "show" && live==false]|order(orderRank){  _id, title, subtitle, year, tickets, slug, mainImage, "alt":mainImage.alt, content  }
 export type INACTIVESHOWS_QUERYResult = Array<{
   _id: string;
   title: string;
@@ -458,7 +472,7 @@ export type INACTIVESHOWS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: SHOW_QUERY
-// Query: *[_type == "show" && slug.current == $slug][0]{    _id, title, subtitle, year, live, tickets, slug, mainImage, "alt":mainImage.alt, content,     }
+// Query: *[_type == "show" && slug.current == $slug][0]{    _id, title, subtitle, year, live, tickets, slug, mainImage, "alt":mainImage.alt, content, attachments[]{        _ref,        title,        file{            "attachmentUrl": asset->url        }        }    }
 export type SHOW_QUERYResult = {
   _id: string;
   title: string;
@@ -515,6 +529,13 @@ export type SHOW_QUERYResult = {
     crop?: SanityImageCrop;
     _type: "image";
     _key: string;
+  }> | null;
+  attachments: Array<{
+    _ref: null;
+    title: string | null;
+    file: {
+      attachmentUrl: string | null;
+    } | null;
   }> | null;
 } | null;
 // Variable: MEMBERS_QUERY
@@ -660,9 +681,9 @@ export type GENERAL_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": ACTIVESHOWS_QUERYResult;
-    "*[_type == \"show\" && live==false]|order(orderRank){\n  _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n  }": INACTIVESHOWS_QUERYResult;
-    "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, year, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, \n    }": SHOW_QUERYResult;
+    "*[_type == \"show\" && live==true]{\n    _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content\n    }": ACTIVESHOWS_QUERYResult;
+    "*[_type == \"show\" && live==false]|order(orderRank){\n  _id, title, subtitle, year, tickets, slug, mainImage, \"alt\":mainImage.alt, content\n  }": INACTIVESHOWS_QUERYResult;
+    "*[_type == \"show\" && slug.current == $slug][0]{\n    _id, title, subtitle, year, live, tickets, slug, mainImage, \"alt\":mainImage.alt, content, attachments[]{\n        _ref,\n        title,\n        file{\n            \"attachmentUrl\": asset->url\n        }\n        }\n    }": SHOW_QUERYResult;
     "*[_type == \"member\" ]|order(orderRank){\n    _id, name, role, image, \"alt\":image.alt, phoneNumber, email\n    }": MEMBERS_QUERYResult;
     "*[_type == \"general\"][0]{\n    sponsors\n    }": SPONSORS_QUERYResult;
     "*[ _type == \"general\"][0]{\n    title, subtitle, mainImage, mainLogo, secondaryLogo, icon, introShort, introLong, email, socials, phone\n    }": GENERAL_QUERYResult;

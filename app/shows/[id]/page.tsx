@@ -8,6 +8,7 @@ import { client } from "@/sanity/lib/client";
 import { SHOW_QUERY } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import { SHOW_QUERYResult } from "@/sanity/types";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "",
@@ -42,6 +43,33 @@ export default async function showPage({
       />
       <Spacer />
       <RichTextParagraph headline="About the show" content={content.content!} />
+
+      <div className="w-full flex flex-col md:flex-row gap-6 md:gap-6">
+        <div className="md:flex-1 max-md:hidden"></div>
+        <div className="flex-1 md:pt-4 [&>p]:pb-6">
+          {content.attachments && content.attachments.length > 0 && (
+            <div className="space-y-2">
+              {content.attachments.map((item, idx) => (
+                <div
+                  key={item._ref || idx}
+                  className="flex flex-row items-center gap-1"
+                >
+                  <Link
+                    key={item._ref || idx}
+                    href={item.file?.attachmentUrl || "/"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:opacity-70 font-medium animate-fade-in transition duration-200"
+                  >
+                    {`${item.title}` || `Download PDF ${idx + 1}`}
+                    <p className="ml-2 no-underline float-right"> [Download]</p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
       <Spacer />
       <CTAdisplay
         headline={content.title!}
