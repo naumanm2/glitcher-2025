@@ -10,8 +10,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   }
 
+
 	try {
 		const { slug } = await req.json();
+		console.log("revalidating", slug);
 
 		if (!slug) {
 			revalidatePath("/");
@@ -24,6 +26,8 @@ export async function POST(req: NextRequest) {
 		revalidatePath(`/shows/${slug}`);
 		// Also revalidate listing page if needed
 		revalidatePath("/shows");
+		// Optionally revalidate the homepage if it lists shows
+		revalidatePath("/");
 
 		return NextResponse.json({ message: `Revalidated /shows/${slug}` });
 	} catch (error) {

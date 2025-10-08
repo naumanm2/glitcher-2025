@@ -13,42 +13,42 @@ import urlFor from "../../utils/image-builder";
 import RichTextParagraph from "../components/richtext-paragraph";
 
 export const metadata: Metadata = {
-	title: "About us",
+  title: "About us",
 };
 
 export default async function About() {
-	const members = await client.fetch(MEMBERS_QUERY);
-	const general = await client.fetch(GENERAL_QUERY);
+  const members = await client.fetch(MEMBERS_QUERY);
+  const general = await client.fetch(GENERAL_QUERY);
 
-	return (
-		<>
-			<Subhero headline="About us" />
-			<Spacer />
-			<RichTextParagraph headline="Glitcher" content={general?.introLong} />
-			<Spacer />
-			<ImageCollection>
-				{members &&
-					members.map((member, index) => (
-						<Card
-							key={index}
-							image={urlFor(member.image).url()}
-							imageBlurData={urlFor(member.image).blur(1000).url()}
-							imageAltText={member.alt}
-							headline={member.name}
-							paragraph={member.role}
-							phone={member.phoneNumber ? member.phoneNumber : undefined}
-						/>
-					))}
-			</ImageCollection>
-			<Spacer />
-			<CTAdisplay
-				headline="Interested?"
-				text="Email us"
-				address={`mailto:${general?.email || "info@glitcher.info"}`}
-			/>
-			<Spacer />
-			<LogoRow />
-			<Spacer />
-		</>
-	);
+  return (
+    <>
+      <Subhero headline="About us" />
+      <Spacer />
+      <RichTextParagraph headline="Glitcher" content={general?.introLong} />
+      <Spacer />
+      <ImageCollection>
+        {members &&
+          members.map((member, index) => (
+            <Card
+              key={index}
+              image={urlFor(member.image).url()}
+              imageBlurData={urlFor(member.image).blur(1000).url()}
+              imageAltText={member.alt}
+              headline={member.name}
+              paragraph={member.role}
+              phone={member.phoneNumber ? member.phoneNumber : undefined}
+            />
+          ))}
+      </ImageCollection>
+      <Spacer />
+      <CTAdisplay
+        headline="Interested?"
+        text="Email us"
+        address={`mailto:${general?.email || "info@glitcher.info"}`}
+      />
+      <Spacer />
+      <LogoRow />
+      <Spacer />
+    </>
+  );
 }
