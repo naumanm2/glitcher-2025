@@ -7,14 +7,15 @@ import { Metadata } from "next";
 import { ACTIVESHOWS_QUERY, INACTIVESHOWS_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import urlFor from "../../utils/image-builder";
+import { ACTIVESHOWS_QUERYResult, INACTIVESHOWS_QUERYResult } from "@/sanity/types";
 
 export const metadata: Metadata = {
   title: "Shows",
 };
 
 export default async function Shows() {
-  const shows = await client.fetch(ACTIVESHOWS_QUERY);
-  const pastShows = await client.fetch(INACTIVESHOWS_QUERY);
+  const shows:ACTIVESHOWS_QUERYResult = await client.fetch(ACTIVESHOWS_QUERY);
+  const pastShows: INACTIVESHOWS_QUERYResult= await client.fetch(INACTIVESHOWS_QUERY);
   const amount = shows.length;
   const pastAmount = pastShows.length;
   return (

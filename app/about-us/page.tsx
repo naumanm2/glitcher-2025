@@ -11,14 +11,15 @@ import { client } from "@/sanity/lib/client";
 import { GENERAL_QUERY, MEMBERS_QUERY } from "@/sanity/lib/queries";
 import urlFor from "../../utils/image-builder";
 import RichTextParagraph from "../components/richtext-paragraph";
+import { GENERAL_QUERYResult, MEMBERS_QUERYResult } from "@/sanity/types";
 
 export const metadata: Metadata = {
   title: "About us",
 };
 
 export default async function About() {
-  const members = await client.fetch(MEMBERS_QUERY);
-  const general = await client.fetch(GENERAL_QUERY);
+  const members:MEMBERS_QUERYResult = await client.fetch(MEMBERS_QUERY);
+  const general:GENERAL_QUERYResult = await client.fetch(GENERAL_QUERY);
 
   return (
     <>

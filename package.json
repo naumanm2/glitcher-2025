@@ -17,14 +17,14 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/orderable-document-list": "^1.2.3",
     "@sanity/types": "^3.76.1",
-    "@sanity/vision": "^3.76.1",
+    "@sanity/vision": "^4.10.2",
     "@types/mdx": "^2.0.13",
-    "next": "15.1.6",
-    "next-sanity": "^9.8.59",
+    "next": "^15.5.4",
+    "next-sanity": "^9.8.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.0.0",
-    "sanity": "^3.76.1",
+    "sanity": "^4.10.2",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
